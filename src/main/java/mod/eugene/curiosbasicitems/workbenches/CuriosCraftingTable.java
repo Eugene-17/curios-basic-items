@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems;
+package mod.eugene.curiosbasicitems.workbenches;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
