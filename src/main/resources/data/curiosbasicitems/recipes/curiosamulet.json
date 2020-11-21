@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curios:amulet"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"GGG",
+		"GEG",
+		"   "
+	],
+	"key": {
+		"E": {
+			"item": "minecraft:nether_star"
+		},
+		"G": {
+			"item": "minecraft:gold_ingot"
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curios:ring"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"GGG",
+		"GEG",
+		"GGG"
+	],
+	"key": {
+		"E": {
+			"item": "minecraft:nether_star"
+		},
+		"G": {
+			"item": "minecraft:gold_ingot"
+		}
+	}
+}

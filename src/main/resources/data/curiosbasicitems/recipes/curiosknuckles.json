@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curios:knuckles"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"EEE",
+		"GDG",
+		"GDG"
+	],
+	"key": {
+		"D": {
+			"item": "minecraft:diamond"
+		},
+		"E": {
+			"item": "minecraft:netherite_ingot"
+		},
+		"G": {
+			"item": "minecraft:gold_ingot"
+		}
+	}
+}
