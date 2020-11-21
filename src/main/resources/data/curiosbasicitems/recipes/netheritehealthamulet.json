@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:netherite_health_amulet"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"NIN",
+		"NGN",
+		"   "
+	],
+	"key": {
+		"I": {
+			"item": "curiosbasicitems:iron_health_amulet"
+		},
+		"N": {
+			"item": "minecraft:netherite_ingot"
+		},
+		"G": {
+			"item": "minecraft:glowstone"
+		}
+	}
+}

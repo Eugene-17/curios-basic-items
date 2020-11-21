@@ -1,0 +1,18 @@
+{
+	"result": {
+		"item": "curiosbasicitems:star_health_amulet"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"N ",
+		"S "
+	],
+	"key": {
+		"N": {
+			"item": "curiosbasicitems:netherite_health_amulet"
+		},
+		"S": {
+			"item": "minecraft:nether_star"
+		}
+	}
+}

@@ -1,5 +1,8 @@
 {
     "key.curiosbasicitems.opencraft.desc": "Open Curios Workbench",
     "key.curiosbasicitems.category": "Curios Workbench",
-    "item.curiosbasicitems.curios_crafting_table": "Curios Crafting Table"
+    "item.curiosbasicitems.curios_crafting_table": "Curios Crafting Table",
+    "item.curiosbasicitems.iron_health_amulet": "Iron Health Amulet",
+    "item.curiosbasicitems.netherite_health_amulet": "Netherite Health Amulet",
+    "item.curiosbasicitems.star_health_amulet": "Star Health Amulet"
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "curiosbasicitems:item/iron_health_amulet"
+  }
+}
