@@ -19,7 +19,7 @@
       "mod.eugene.curiosbasicitems.CuriosBasicItems"
     ],
     "client": [
-      "mod.eugene.curiosbasicitems.ClientRegistry"
+      "mod.eugene.curiosbasicitems.ClientRegister"
     ]
   },
   "mixins": [

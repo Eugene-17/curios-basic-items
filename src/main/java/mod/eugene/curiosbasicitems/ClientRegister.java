@@ -9,8 +9,9 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import io.netty.buffer.Unpooled;
+import mod.eugene.curiosbasicitems.models.ModelRegister;
 
-public class ClientRegistry implements ClientModInitializer {
+public class ClientRegister implements ClientModInitializer {
 
     public static final String CONFIG_OPEN_DESC = "key.curiosbasicitems.opencraft.desc";
     public static final String CONFIG_CATEGORY = "key.curiosbasicitems.category";
@@ -24,9 +25,11 @@ public class ClientRegistry implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register((minecraftClient -> {
             ClientPlayerEntity clientPlayerEntity = minecraftClient.player;
         
-            if (clientPlayerEntity != null && ClientRegistry.openCuriosCraftingTable.wasPressed()) {
+            if (clientPlayerEntity != null && ClientRegister.openCuriosCraftingTable.wasPressed()) {
                 ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.ACCESS_WORKBENCH, new PacketByteBuf(Unpooled.buffer()));
             }
         }));
+
+        ModelRegister.register();
     }
 }
