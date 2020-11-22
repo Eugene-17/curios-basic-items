@@ -21,23 +21,23 @@ public class ModelRegister {
     private static final Identifier STAR_AMULET_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/entity/star_amulet.png");
 
     private static void register_amulet(Item amulet_, Identifier texture_){
-        ItemComponentCallbackV2.event(amulet_).register(
-        ((item, itemStack, componentContainer) -> componentContainer
+        ItemComponentCallbackV2.event(amulet_).register(((item, itemStack, componentContainer) -> componentContainer
             .put(CuriosComponent.ITEM_RENDER, new IRenderableCurio() {
-              AmuletModel<LivingEntity> model = new AmuletModel<>();
+                AmuletModel<LivingEntity> model = new AmuletModel<>();
 
-              @Override
-              public void render(String identifier, int index, MatrixStack matrixStack,
-                  VertexConsumerProvider vertexConsumerProvider, int light,
-                  LivingEntity livingEntity, float limbSwing, float limbSwingAmount,
-                  float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-                IRenderableCurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
-                IRenderableCurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
-                VertexConsumer consumer = ItemRenderer.getItemGlintConsumer(vertexConsumerProvider, model.getLayer(texture_), false, itemStack.hasGlint());
-                model.render(matrixStack, consumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
-              }
+                @Override
+                public void render(String identifier, int index, MatrixStack matrixStack,
+                    VertexConsumerProvider vertexConsumerProvider, int light,
+                    LivingEntity livingEntity, float limbSwing, float limbSwingAmount,
+                    float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+                        IRenderableCurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
+                        IRenderableCurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
+                        VertexConsumer consumer = ItemRenderer.getItemGlintConsumer(vertexConsumerProvider, model.getLayer(texture_), false, itemStack.hasGlint());
+                        model.render(matrixStack, consumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
+                }
             })));
     }
+
     public static void register() {
         register_amulet(ItemsRegister.IRON_HEALTH_AMULET, IRON_AMULET_TEXTURE);
         register_amulet(ItemsRegister.NETHERITE_HEALTH_AMULET, NETHERITE_AMULET_TEXTURE);
