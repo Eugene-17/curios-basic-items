@@ -4,5 +4,8 @@
     "item.curiosbasicitems.curios_crafting_table": "Curios Crafting Table",
     "item.curiosbasicitems.iron_health_amulet": "Iron Health Amulet",
     "item.curiosbasicitems.netherite_health_amulet": "Netherite Health Amulet",
-    "item.curiosbasicitems.star_health_amulet": "Star Health Amulet"
+    "item.curiosbasicitems.star_health_amulet": "Star Health Amulet",
+    "item.curiosbasicitems.iron_health_amulet.tooltip": "+2 Hearts",
+    "item.curiosbasicitems.netherite_health_amulet.tooltip": "+5 Hearts",
+    "item.curiosbasicitems.star_health_amulet.tooltip": "+10 Hearts"
 }
