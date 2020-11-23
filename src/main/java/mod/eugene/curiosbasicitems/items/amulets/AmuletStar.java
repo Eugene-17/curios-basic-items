@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.items;
+package mod.eugene.curiosbasicitems.items.amulets;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,16 +10,16 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-public class StarHealthAmulet extends Item {
+public class AmuletStar extends Item {
     public static final UUID HEALTH_UUID = UUID.fromString("66bbc8c0-def8-404d-9687-eb39a6be5927");
 
-    public StarHealthAmulet() {
+    public AmuletStar() {
         super(new Item.Settings().group(ItemGroup.TOOLS).maxCount(1).maxDamage(2000));
     }
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.curiosbasicitems.star_health_amulet.tooltip"));
+        tooltip.add(new TranslatableText("item.curiosbasicitems.amulet_star.tooltip"));
     }
 
     @Override

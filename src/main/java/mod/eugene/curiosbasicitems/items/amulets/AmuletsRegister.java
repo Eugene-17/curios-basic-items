@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.items;
+package mod.eugene.curiosbasicitems.items.amulets;
 
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
@@ -18,10 +18,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class ItemsRegister {
-    public static final IronHealthAmulet IRON_HEALTH_AMULET = new IronHealthAmulet();
-	public static final NetheriteHealthAmulet NETHERITE_HEALTH_AMULET = new NetheriteHealthAmulet();
-    public static final StarHealthAmulet STAR_HEALTH_AMULET = new StarHealthAmulet();
+public class AmuletsRegister {
+    public static final AmuletIron IRON_HEALTH_AMULET = new AmuletIron();
+	public static final AmuletNetherite NETHERITE_HEALTH_AMULET = new AmuletNetherite();
+    public static final AmuletStar STAR_HEALTH_AMULET = new AmuletStar();
 
     private static final void resetHealth(UUID UUID_, LivingEntity livingEntity){
         if (livingEntity instanceof PlayerEntity) {
@@ -36,9 +36,9 @@ public class ItemsRegister {
 
     public static void register() {
         //Register new item
-        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "iron_health_amulet"), IRON_HEALTH_AMULET);
-        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "netherite_health_amulet"), NETHERITE_HEALTH_AMULET);
-        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "star_health_amulet"), STAR_HEALTH_AMULET);
+        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "amulet_iron"), IRON_HEALTH_AMULET);
+        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "amulet_netherite"), NETHERITE_HEALTH_AMULET);
+        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "amulet_star"), STAR_HEALTH_AMULET);
 
         //Register items event
 		ItemComponentCallbackV2.event(IRON_HEALTH_AMULET).register(
@@ -49,7 +49,7 @@ public class ItemsRegister {
 					public void onEquip(String identifier, int index, LivingEntity livingEntity) {
 						if (livingEntity instanceof PlayerEntity) {
                             EntityAttributeModifier modifier = new EntityAttributeModifier(
-                                    IronHealthAmulet.HEALTH_UUID, "Health bonus", 4, Operation.ADDITION);
+                                    AmuletIron.HEALTH_UUID, "Health bonus", 4, Operation.ADDITION);
                             EntityAttributeInstance maxHealthAttr = livingEntity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
                             maxHealthAttr.removeModifier(modifier);
                             maxHealthAttr.addPersistentModifier(modifier);
@@ -58,7 +58,7 @@ public class ItemsRegister {
                     
                     @Override
 					public void onUnequip(String identifier, int index, LivingEntity livingEntity) {
-						resetHealth(IronHealthAmulet.HEALTH_UUID, livingEntity);
+						resetHealth(AmuletIron.HEALTH_UUID, livingEntity);
                     }
 
                     @Override
@@ -82,7 +82,7 @@ public class ItemsRegister {
 					public void onEquip(String identifier, int index, LivingEntity livingEntity) {
 						if (livingEntity instanceof PlayerEntity) {
                             EntityAttributeModifier modifier = new EntityAttributeModifier(
-                                NetheriteHealthAmulet.HEALTH_UUID, "Health bonus", 10, Operation.ADDITION);
+                                AmuletNetherite.HEALTH_UUID, "Health bonus", 10, Operation.ADDITION);
                             EntityAttributeInstance maxHealthAttr = livingEntity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
                             maxHealthAttr.removeModifier(modifier);
                             maxHealthAttr.addPersistentModifier(modifier);
@@ -91,7 +91,7 @@ public class ItemsRegister {
                     
                     @Override
 					public void onUnequip(String identifier, int index, LivingEntity livingEntity) {
-						resetHealth(NetheriteHealthAmulet.HEALTH_UUID, livingEntity);
+						resetHealth(AmuletNetherite.HEALTH_UUID, livingEntity);
                     }
 
                     @Override
@@ -115,7 +115,7 @@ public class ItemsRegister {
 					public void onEquip(String identifier, int index, LivingEntity livingEntity) {
 						if (livingEntity instanceof PlayerEntity) {
                             EntityAttributeModifier modifier = new EntityAttributeModifier(
-                                StarHealthAmulet.HEALTH_UUID, "Health bonus", 20, Operation.ADDITION);
+                                AmuletStar.HEALTH_UUID, "Health bonus", 20, Operation.ADDITION);
                             EntityAttributeInstance maxHealthAttr = livingEntity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
                             maxHealthAttr.removeModifier(modifier);
                             maxHealthAttr.addPersistentModifier(modifier);
@@ -124,7 +124,7 @@ public class ItemsRegister {
                     
                     @Override
 					public void onUnequip(String identifier, int index, LivingEntity livingEntity) {
-						resetHealth(StarHealthAmulet.HEALTH_UUID, livingEntity);
+						resetHealth(AmuletStar.HEALTH_UUID, livingEntity);
                     }
     
                     @Override

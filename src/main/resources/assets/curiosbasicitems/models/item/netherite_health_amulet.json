@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "curiosbasicitems:item/netherite_health_amulet"
-  }
-}

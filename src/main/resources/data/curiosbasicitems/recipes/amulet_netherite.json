@@ -1,6 +1,6 @@
 {
 	"result": {
-		"item": "curiosbasicitems:netherite_health_amulet"
+		"item": "curiosbasicitems:amulet_netherite"
 	},
 	"type": "crafting_shaped",
 	"pattern": [
@@ -10,7 +10,7 @@
 	],
 	"key": {
 		"I": {
-			"item": "curiosbasicitems:iron_health_amulet"
+			"item": "curiosbasicitems:amulet_iron"
 		},
 		"N": {
 			"item": "minecraft:netherite_ingot"

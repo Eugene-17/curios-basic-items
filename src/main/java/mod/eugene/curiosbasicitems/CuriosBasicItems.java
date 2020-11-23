@@ -1,6 +1,6 @@
 package mod.eugene.curiosbasicitems;
 
-import mod.eugene.curiosbasicitems.items.ItemsRegister;
+import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -19,8 +19,11 @@ public class CuriosBasicItems implements ModInitializer {
 		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.NECKLACE.getInfoBuilder().build());
 		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.HEAD.getInfoBuilder().build());
 		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BACK.getInfoBuilder().build());
+        CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.CHARM.getInfoBuilder().build());
+        CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BRACELET.getInfoBuilder().build());
+        CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BELT.getInfoBuilder().build());
 
-		ItemsRegister.register();
+		AmuletsRegister.register();
 		WorkBenchesRegister.register();
 	}	
 }
