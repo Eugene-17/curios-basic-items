@@ -1,10 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "mod.eugene.curiosbasicitems.items.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
   ],
+  "client": ["ItemAccessor"],
   "injectors": {
     "defaultRequire": 1
   }

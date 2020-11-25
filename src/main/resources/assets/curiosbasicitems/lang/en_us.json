@@ -7,5 +7,6 @@
     "item.curiosbasicitems.amulet_star": "Star Health Amulet",
     "item.curiosbasicitems.amulet_iron.tooltip": "+2 Hearts",
     "item.curiosbasicitems.amulet_netherite.tooltip": "+5 Hearts",
-    "item.curiosbasicitems.amulet_star.tooltip": "+10 Hearts"
+    "item.curiosbasicitems.amulet_star.tooltip": "+10 Hearts",
+    "itemGroup.curiosbasicitems.groupname": "Curios Basic Items"
 }

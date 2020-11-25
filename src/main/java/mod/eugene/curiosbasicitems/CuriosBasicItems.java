@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeInfo.BuildScheme;
 import top.theillusivec4.curios.api.SlotTypePreset;
+import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
 
 public class CuriosBasicItems implements ModInitializer {
 
@@ -25,5 +26,6 @@ public class CuriosBasicItems implements ModInitializer {
 
 		AmuletsRegister.register();
 		WorkBenchesRegister.register();
+		CuriosItemGroup.setDefaultItemGroup();
 	}	
 }
