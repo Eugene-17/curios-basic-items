@@ -4,8 +4,8 @@
 	},
 	"type": "crafting_shaped",
 	"pattern": [
-		"N ",
-		"S "
+		"ENE",
+		" S "
 	],
 	"key": {
 		"N": {
@@ -13,6 +13,9 @@
 		},
 		"S": {
 			"item": "minecraft:nether_star"
+		},
+		"E": {
+			"item": "minecraft:ender_eye"
 		}
 	}
 }
