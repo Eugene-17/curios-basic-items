@@ -7,10 +7,13 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeInfo.BuildScheme;
 import top.theillusivec4.curios.api.SlotTypePreset;
 import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CuriosBasicItems implements ModInitializer {
 
 	public static final String MODID = "curiosbasicitems";
+	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
 	public void onInitialize() {

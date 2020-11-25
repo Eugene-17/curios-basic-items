@@ -1,19 +1,14 @@
 package mod.eugene.curiosbasicitems.workbenches;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CuriosCraftingTable extends Item {
+public class CuriosCraftingTable extends CuriosWorkbenches {
     private static final Text CRAFTING_TABLE_TEXT = new TranslatableText("container.crafting", new Object[0]);
     
     public CuriosCraftingTable(Settings settings) {
@@ -21,11 +16,10 @@ public class CuriosCraftingTable extends Item {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world_, PlayerEntity player_, Hand hand_) {
+    public void useWorkbench(World world_, PlayerEntity player_) {
         if (!world_.isClient()) {
             player_.openHandledScreen(openCuriosCraftingTable(world_, player_.getBlockPos()));
         }
-        return new TypedActionResult<>(ActionResult.PASS, player_.getStackInHand(hand_));
     }
 
     public NamedScreenHandlerFactory openCuriosCraftingTable(World world_, BlockPos blockPos_){

@@ -26,7 +26,7 @@ public class ClientRegister implements ClientModInitializer {
             ClientPlayerEntity clientPlayerEntity = minecraftClient.player;
         
             if (clientPlayerEntity != null && ClientRegister.openCuriosCraftingTable.wasPressed()) {
-                ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.ACCESS_WORKBENCH, new PacketByteBuf(Unpooled.buffer()));
+                ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.ACCESS_BACKSLOT, new PacketByteBuf(Unpooled.buffer()));
             }
         }));
 
