@@ -1,0 +1,12 @@
+{
+	"result": {
+		"item": "curiosbasicitems:bracelet_gilded_netherite"
+	},
+	"type": "minecraft:smithing",
+	"base": {
+		"item": "curiosbasicitems:bracelet_netherite"
+	  },
+	  "addition": {
+		"item": "curiosbasicitems:bracelet_gold"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+        "curiosbasicitems:bracelet_iron",
+        "curiosbasicitems:bracelet_gold",
+        "curiosbasicitems:bracelet_diamond",
+        "curiosbasicitems:bracelet_netherite",
+        "curiosbasicitems:bracelet_gilded_netherite"
+	]
+}

@@ -1,6 +1,7 @@
 {
     "key.curiosbasicitems.opencraft.desc": "Open Curios Workbench",
     "key.curiosbasicitems.category": "Curios Workbench",
+    "itemGroup.curiosbasicitems.groupname": "Curios Basic Items",
     "item.curiosbasicitems.curios_crafting_table": "Curios Crafting Table",
     "item.curiosbasicitems.amulet_iron": "Iron Health Amulet",
     "item.curiosbasicitems.amulet_netherite": "Netherite Health Amulet",
@@ -8,5 +9,10 @@
     "item.curiosbasicitems.amulet_iron.tooltip": "+2 Hearts",
     "item.curiosbasicitems.amulet_netherite.tooltip": "+5 Hearts",
     "item.curiosbasicitems.amulet_star.tooltip": "+10 Hearts",
-    "itemGroup.curiosbasicitems.groupname": "Curios Basic Items"
+    "item.curiosbasicitems.bracelet_iron": "Iron Bracelet",
+    "item.curiosbasicitems.bracelet_gold": "Golden Bracelet",
+    "item.curiosbasicitems.bracelet_diamond": "Diamond Bracelet",
+    "item.curiosbasicitems.bracelet_netherite": "Netherite Bracelet",
+    "item.curiosbasicitems.bracelet_gilded_netherite": "Gilded Netherite Bracelet",
+    "item.curiosbasicitems.bracelet_gold.tooltip": "Also make Piglin friendly"
 }

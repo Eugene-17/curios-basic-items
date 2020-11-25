@@ -1,0 +1,17 @@
+{
+	"result": {
+		"item": "curiosbasicitems:bracelet_diamond"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"DID"
+	],
+	"key": {
+		"I": {
+			"item": "curiosbasicitems:bracelet_iron"
+		},
+		"D": {
+			"item": "minecraft:diamond"
+		}
+	}
+}

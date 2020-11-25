@@ -1,0 +1,16 @@
+{
+	"result": {
+		"item": "curiosbasicitems:bracelet_iron"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"I I",
+		"I I",
+		"I I"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		}
+	}
+}

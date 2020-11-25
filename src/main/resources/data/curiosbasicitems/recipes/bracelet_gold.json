@@ -1,0 +1,16 @@
+{
+	"result": {
+		"item": "curiosbasicitems:bracelet_gold"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"G G",
+		"G G",
+		"G G"
+	],
+	"key": {
+		"G": {
+			"item": "minecraft:gold_ingot"
+		}
+	}
+}

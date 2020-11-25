@@ -4,6 +4,7 @@
   "package": "mod.eugene.curiosbasicitems.items.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "PiglinBrainMixin"
   ],
   "client": ["ItemAccessor"],
   "injectors": {
