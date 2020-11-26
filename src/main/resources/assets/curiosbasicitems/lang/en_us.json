@@ -14,5 +14,8 @@
     "item.curiosbasicitems.bracelet_diamond": "Diamond Bracelet",
     "item.curiosbasicitems.bracelet_netherite": "Netherite Bracelet",
     "item.curiosbasicitems.bracelet_gilded_netherite": "Gilded Netherite Bracelet",
-    "item.curiosbasicitems.bracelet_gold.tooltip": "Also make Piglin friendly"
+    "item.curiosbasicitems.bracelet_gold.tooltip": "Also make Piglin friendly",
+    "curios.identifier.mask": "Mask",
+    "curios.identifier.left_belt": "Left Hoster",
+    "curios.identifier.right_belt": "Right Hoster"
 }
