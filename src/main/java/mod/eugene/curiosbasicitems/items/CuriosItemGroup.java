@@ -1,13 +1,12 @@
 package mod.eugene.curiosbasicitems.items;
 
+import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
+import mod.eugene.curiosbasicitems.mixin.ItemAccessor;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-
-import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
 import top.theillusivec4.curios.common.CuriosRegistry;
-import mod.eugene.curiosbasicitems.items.mixin.ItemAccessor;
 
 public class CuriosItemGroup {
     public static final ItemGroup CURIOS_BASIC_ITEMS = FabricItemGroupBuilder.build(

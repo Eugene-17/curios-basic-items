@@ -1,12 +1,14 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "mod.eugene.curiosbasicitems.items.mixin",
+  "package": "mod.eugene.curiosbasicitems.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "PiglinBrainMixin"
   ],
-  "client": ["ItemAccessor"],
+  "client": [
+    "ItemAccessor"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

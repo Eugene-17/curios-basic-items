@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.items.mixin;
+package mod.eugene.curiosbasicitems.mixin;
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

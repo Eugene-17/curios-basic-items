@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.items.mixin;
+package mod.eugene.curiosbasicitems.mixin;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
