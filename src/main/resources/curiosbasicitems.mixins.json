@@ -6,12 +6,14 @@
   "mixins": [
     "PiglinBrainMixin",
     "PlayerInventoryMixin",
-    "PlayerScreenHandlerMixin"
+    "PlayerScreenHandlerMixin",
+    "EntityTrackerEntryMixin"
   ],
   "client": [
     "ItemAccessor",
     "HandledScreenMixin",
-    "InventoryScreenMixin"
+    "InventoryScreenMixin",
+    "InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1
