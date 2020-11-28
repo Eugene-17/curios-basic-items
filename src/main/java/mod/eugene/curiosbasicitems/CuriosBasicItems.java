@@ -6,6 +6,7 @@ import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -16,15 +17,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import top.theillusivec4.curios.api.SlotTypeInfo.Builder;
+import net.minecraft.util.registry.Registry;
 
 public class CuriosBasicItems implements ModInitializer {
 
 	public static final String MODID = "curiosbasicitems";
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static Tag<Item> PIGLIN_SAFE_CURIOS;
-	// public static Builder MASK_BUILDER = new Builder("mask").priority(1001).icon(new Identifier(MODID, "item/empty_mask_slot"));
-	// public static Builder LEFT_BELT_BUILDER = new Builder("left_belt").priority(1002).icon(new Identifier(MODID, "item/empty_left_belt_slot"));
-	// public static Builder RIGHT_BELT_BUILDER = new Builder("right_belt").priority(1003).icon(new Identifier(MODID, "item/empty_right_belt_slot"));
+    public static final Identifier PACK_UP_ITEM = new Identifier(MODID, "pack_up_item");
+    public static SoundEvent PACK_UP_ITEM_EVENT = new SoundEvent(PACK_UP_ITEM);
+    public static final Identifier SHEATH_SWORD = new Identifier(MODID, "sheath_sword");
+    public static SoundEvent SHEATH_SWORD_EVENT = new SoundEvent(SHEATH_SWORD);
 	
 	@Override
 	public void onInitialize() {
@@ -37,17 +40,17 @@ public class CuriosBasicItems implements ModInitializer {
         CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.CHARM.getInfoBuilder().build());
         CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BRACELET.getInfoBuilder().build());
 		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BELT.getInfoBuilder().build());
-		// CuriosApi.enqueueSlotType(BuildScheme.REGISTER, MASK_BUILDER.build());
-		// CuriosApi.enqueueSlotType(BuildScheme.REGISTER, LEFT_BELT_BUILDER.build());
-		// CuriosApi.enqueueSlotType(BuildScheme.REGISTER, RIGHT_BELT_BUILDER.build());
 
 		PIGLIN_SAFE_CURIOS = TagRegistry.item(new Identifier(MODID, "piglin_safe_curios"));
+        Registry.register(Registry.SOUND_EVENT, PACK_UP_ITEM, PACK_UP_ITEM_EVENT);
+        Registry.register(Registry.SOUND_EVENT, SHEATH_SWORD, SHEATH_SWORD_EVENT);  
 
+        NetworkPackets.switchPacketInit();
+        NetworkPackets.eatPacketinit();
         AmuletsRegister.register();
         BeltsRegister.register();
 		BraceletsRegister.register();
 		WorkBenchesRegister.register();
-
-		CuriosItemGroup.setDefaultItemGroup();
+        CuriosItemGroup.setDefaultItemGroup();
 	}	
 }

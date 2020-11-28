@@ -7,6 +7,8 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import top.theillusivec4.curios.api.CuriosComponent;
 import top.theillusivec4.curios.api.type.component.ICurio;
 import net.minecraft.world.World;
@@ -34,6 +36,7 @@ public class BeltsRegister {
                         if (livingEntity instanceof PlayerEntity) {
                             PlayerEntity player = (PlayerEntity) livingEntity;
                             dropAllBeltItem(player.inventory, player.getEntityWorld());
+                            player.world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
                         }
                     }
         })));

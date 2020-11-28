@@ -1,6 +1,10 @@
 {
-    "key.curiosbasicitems.opencraft.desc": "Open Curios Workbench",
-    "key.curiosbasicitems.category": "Curios Workbench",
+    "key.curiosbasicitems.opencraft.desc": "Use item in backslot",
+    "key.curiosbasicitems.left_belt.desc": "Switch item to left belt slot",
+    "key.curiosbasicitems.right_belt.desc": "Switch item to right belt slot",
+    "key.curiosbasicitems.potion_belt.desc": "Switch item to potion belt slot",
+    "key.curiosbasicitems.eat_belt.desc": "Instantly use item in potion belt slot",
+    "key.curiosbasicitems.category": "Curios Basic Items",
     "itemGroup.curiosbasicitems.groupname": "Curios Basic Items",
     "item.curiosbasicitems.curios_crafting_table": "Curios Crafting Table",
     "item.curiosbasicitems.amulet_iron": "Iron Health Amulet",

@@ -111,9 +111,9 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
         Slot potionBeltSlot = new Slot(inventory, 43, 77, 8) {
             @Override
             public int getMaxItemCount() {
-                return 1;
+                return 64;
             }
-
+ 
             @Override
             public boolean canInsert(ItemStack stack) {
                 if(BeltLeather.isWearingBelt(owner)){
