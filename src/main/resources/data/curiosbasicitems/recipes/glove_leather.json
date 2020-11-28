@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:glove_leather"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"III",
+        "LLL",
+        " I "
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"L": {
+			"item": "minecraft:leather"
+		}
+	}
+}

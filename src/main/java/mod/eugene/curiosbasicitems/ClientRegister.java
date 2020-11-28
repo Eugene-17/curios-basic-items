@@ -1,6 +1,5 @@
 package mod.eugene.curiosbasicitems;
 
-import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;

@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:glove_power"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"RSR",
+        "RGR",
+        "RRR"
+	],
+	"key": {
+		"S": {
+			"item": "minecraft:nether_star"
+		},
+		"R": {
+			"item": "minecraft:redstone_block"
+		},
+		"G": {
+			"item": "curiosbasicitems:glove_netherite"
+        }
+	}
+}

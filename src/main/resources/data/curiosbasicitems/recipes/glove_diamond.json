@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:glove_diamond"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"DDD",
+        "IGI",
+        " I "
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"D": {
+			"item": "minecraft:diamond"
+		},
+		"G": {
+			"item": "curiosbasicitems:glove_leather"
+        }
+	}
+}

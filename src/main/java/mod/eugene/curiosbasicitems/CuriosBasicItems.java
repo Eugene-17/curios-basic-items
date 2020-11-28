@@ -3,6 +3,7 @@ package mod.eugene.curiosbasicitems;
 import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
 import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
 import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
+import mod.eugene.curiosbasicitems.items.gloves.GlovesRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
@@ -16,7 +17,6 @@ import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.fabricmc.fabric.api.tag.TagRegistry;
-import top.theillusivec4.curios.api.SlotTypeInfo.Builder;
 import net.minecraft.util.registry.Registry;
 
 public class CuriosBasicItems implements ModInitializer {
@@ -49,6 +49,7 @@ public class CuriosBasicItems implements ModInitializer {
         NetworkPackets.eatPacketinit();
         AmuletsRegister.register();
         BeltsRegister.register();
+        GlovesRegister.register();
 		BraceletsRegister.register();
 		WorkBenchesRegister.register();
         CuriosItemGroup.setDefaultItemGroup();

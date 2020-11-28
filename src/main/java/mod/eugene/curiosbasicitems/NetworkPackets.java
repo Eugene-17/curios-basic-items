@@ -10,7 +10,6 @@ import net.minecraft.item.ToolItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.item.FishingRodItem;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.OnAStickItem;
@@ -18,7 +17,6 @@ import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.item.TridentItem;
 import net.minecraft.item.PotionItem;
-import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
 
 public class NetworkPackets {
     public static final Identifier ACCESS_BACKSLOT = new Identifier(CuriosBasicItems.MODID, "access_backslot");

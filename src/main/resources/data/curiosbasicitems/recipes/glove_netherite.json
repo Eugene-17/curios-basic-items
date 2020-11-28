@@ -1,0 +1,12 @@
+{
+	"result": {
+		"item": "curiosbasicitems:glove_netherite"
+	},
+	"type": "minecraft:smithing",
+	"base": {
+		"item": "curiosbasicitems:glove_diamond"
+	  },
+	  "addition": {
+		"item": "minecraft:netherite_ingot"
+	}
+}
