@@ -1,6 +1,7 @@
 package mod.eugene.curiosbasicitems;
 
 import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
+import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
 import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
@@ -21,9 +22,9 @@ public class CuriosBasicItems implements ModInitializer {
 	public static final String MODID = "curiosbasicitems";
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static Tag<Item> PIGLIN_SAFE_CURIOS;
-	public static Builder MASK_BUILDER = new Builder("mask").priority(1001).icon(new Identifier(MODID, "item/empty_mask_slot"));
-	public static Builder LEFT_BELT_BUILDER = new Builder("left_belt").priority(1002).icon(new Identifier(MODID, "item/empty_left_belt_slot"));
-	public static Builder RIGHT_BELT_BUILDER = new Builder("right_belt").priority(1003).icon(new Identifier(MODID, "item/empty_right_belt_slot"));
+	// public static Builder MASK_BUILDER = new Builder("mask").priority(1001).icon(new Identifier(MODID, "item/empty_mask_slot"));
+	// public static Builder LEFT_BELT_BUILDER = new Builder("left_belt").priority(1002).icon(new Identifier(MODID, "item/empty_left_belt_slot"));
+	// public static Builder RIGHT_BELT_BUILDER = new Builder("right_belt").priority(1003).icon(new Identifier(MODID, "item/empty_right_belt_slot"));
 	
 	@Override
 	public void onInitialize() {
@@ -36,13 +37,14 @@ public class CuriosBasicItems implements ModInitializer {
         CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.CHARM.getInfoBuilder().build());
         CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BRACELET.getInfoBuilder().build());
 		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, SlotTypePreset.BELT.getInfoBuilder().build());
-		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, MASK_BUILDER.build());
-		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, LEFT_BELT_BUILDER.build());
-		CuriosApi.enqueueSlotType(BuildScheme.REGISTER, RIGHT_BELT_BUILDER.build());
+		// CuriosApi.enqueueSlotType(BuildScheme.REGISTER, MASK_BUILDER.build());
+		// CuriosApi.enqueueSlotType(BuildScheme.REGISTER, LEFT_BELT_BUILDER.build());
+		// CuriosApi.enqueueSlotType(BuildScheme.REGISTER, RIGHT_BELT_BUILDER.build());
 
 		PIGLIN_SAFE_CURIOS = TagRegistry.item(new Identifier(MODID, "piglin_safe_curios"));
 
-		AmuletsRegister.register();
+        AmuletsRegister.register();
+        BeltsRegister.register();
 		BraceletsRegister.register();
 		WorkBenchesRegister.register();
 
