@@ -4,10 +4,14 @@
   "package": "mod.eugene.curiosbasicitems.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "PiglinBrainMixin"
+    "PiglinBrainMixin",
+    "PlayerInventoryMixin",
+    "PlayerScreenHandlerMixin"
   ],
   "client": [
-    "ItemAccessor"
+    "ItemAccessor",
+    "HandledScreenMixin",
+    "InventoryScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
