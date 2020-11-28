@@ -1,6 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"curiosbasicitems:belt_leather"
+        "curiosbasicitems:belt_leather",
+        "curiosbasicitems:belt_gluttony",
+        "curiosbasicitems:belt_champion"
 	]
 }

@@ -27,4 +27,12 @@ public class BeltLeather extends Item {
                 .getItem() instanceof BeltLeather, playerEntity)
                 .isPresent();
     }
+
+    public static boolean allowInstantEat(PlayerEntity playerEntity) {
+        return CuriosApi.getCuriosHelper().findEquippedCurio(
+            (itemStack) -> itemStack
+                .getItem() instanceof BeltGluttony || itemStack
+                .getItem() instanceof BeltChampion, playerEntity)
+                .isPresent();
+    }
 }   

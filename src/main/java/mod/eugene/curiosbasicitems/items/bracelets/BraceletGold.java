@@ -20,6 +20,6 @@ public class BraceletGold extends Item {
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.curiosbasicitems.bracelet_gold.tooltip"));
+        tooltip.add(new TranslatableText("item.curiosbasicitems.piglin_friend_curios.tooltip"));
     }
 }   

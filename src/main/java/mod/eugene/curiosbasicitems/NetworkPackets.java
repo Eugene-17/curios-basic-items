@@ -18,6 +18,7 @@ import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.item.TridentItem;
 import net.minecraft.item.PotionItem;
+import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
 
 public class NetworkPackets {
     public static final Identifier ACCESS_BACKSLOT = new Identifier(CuriosBasicItems.MODID, "access_backslot");
@@ -62,14 +63,13 @@ public class NetworkPackets {
             PlayerEntity player = context.getPlayer();
             int slot = buffer.readInt();
             ItemStack itemStack = player.inventory.getStack(slot);
-
-            if (player.canConsume(itemStack.getItem().getFoodComponent().isAlwaysEdible())) {
-                player.eatFood(player.getEntityWorld(), itemStack);
+            if(BeltLeather.allowInstantEat(player)){
+                if(!itemStack.isEmpty()){
+                    if (player.canConsume(itemStack.getItem().getFoodComponent().isAlwaysEdible())) {
+                        player.eatFood(player.getEntityWorld(), itemStack);
+                    }
+                }
             }
-
-            // itemStack.onStoppedUsing(world, user, remainingUseTicks);
-            // itemStack.use(player.getEntityWorld(), player, player.getActiveHand());
-            CuriosBasicItems.LOGGER.info("attempt eating");
         });
     }
 

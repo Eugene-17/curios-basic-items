@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:belt_gluttony"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"AAA",
+        "ABA",
+        "AAA"
+	],
+	"key": {
+		"B": {
+			"item": "curiosbasicitems:belt_leather"
+		},
+		"A": {
+			"item": "minecraft:golden_apple"
+		}
+	}
+}

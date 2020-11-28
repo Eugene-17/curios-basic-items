@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:belt_leather"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"SSS",
+        "LIL",
+        "SSS"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"L": {
+			"item": "minecraft:leather"
+		},
+		"S": {
+			"item": "minecraft:string"
+		}
+	}
+}
