@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:cloak_fire"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"MNM",
+		"MNM",
+		"MBM"
+	],
+	"key": {
+		"M": {
+			"item": "minecraft:magma_cream"
+		},
+		"N": {
+			"item": "minecraft:netherite_ingot"
+		},
+		"B": {
+			"item": "minecraft:blaze_rod"
+		}
+	}
+}

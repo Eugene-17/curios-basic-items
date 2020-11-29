@@ -3,6 +3,7 @@ package mod.eugene.curiosbasicitems;
 import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
 import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
 import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
+import mod.eugene.curiosbasicitems.items.cloaks.CloaksRegister;
 import mod.eugene.curiosbasicitems.items.gloves.GlovesRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
@@ -49,6 +50,7 @@ public class CuriosBasicItems implements ModInitializer {
         NetworkPackets.eatPacketinit();
         AmuletsRegister.register();
         BeltsRegister.register();
+        CloaksRegister.register();
         GlovesRegister.register();
 		BraceletsRegister.register();
 		WorkBenchesRegister.register();

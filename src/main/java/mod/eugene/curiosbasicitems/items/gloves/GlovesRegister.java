@@ -45,7 +45,7 @@ public class GlovesRegister {
                         if(!(activeItem instanceof ToolItem || activeItem instanceof TridentItem )){
                             if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
                                 livingEntity.addStatusEffect(
-                                    new StatusEffectInstance(StatusEffects.STRENGTH, 20, 0, true, true));
+                                    new StatusEffectInstance(StatusEffects.STRENGTH, 21, 0, true, true));
                             }
                         }
                     }
@@ -60,7 +60,7 @@ public class GlovesRegister {
                         if(!(activeItem instanceof ToolItem || activeItem instanceof TridentItem )){
                             if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
                                 livingEntity.addStatusEffect(
-                                    new StatusEffectInstance(StatusEffects.STRENGTH, 20, 1, true, true));
+                                    new StatusEffectInstance(StatusEffects.STRENGTH, 21, 1, true, true));
                             }
                         }
                     }
@@ -87,7 +87,7 @@ public class GlovesRegister {
                         if(!(activeItem instanceof ToolItem || activeItem instanceof TridentItem )){
                             if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
                                 livingEntity.addStatusEffect(
-                                    new StatusEffectInstance(StatusEffects.STRENGTH, 20, 2, true, true));
+                                    new StatusEffectInstance(StatusEffects.STRENGTH, 21, 2, true, true));
                             }
                         }
                     }
@@ -116,7 +116,7 @@ public class GlovesRegister {
                                 livingEntity.addStatusEffect( new StatusEffectInstance(StatusEffects.STRENGTH, 20, 2, true, true));
                             }
                             else livingEntity.addStatusEffect( new StatusEffectInstance(StatusEffects.STRENGTH, 20, 1, true, true));
-                            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 20, 0, true, true));
+                            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 21, 0, true, true));
                         }
                     }
 

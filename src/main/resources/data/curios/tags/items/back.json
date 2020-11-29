@@ -1,6 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"curiosbasicitems:curios_crafting_table"
+        "curiosbasicitems:curios_crafting_table",
+        "curiosbasicitems:cloak_invisible",
+        "curiosbasicitems:cloak_fire"
 	]
 }

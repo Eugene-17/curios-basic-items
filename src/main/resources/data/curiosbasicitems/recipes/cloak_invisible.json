@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:cloak_invisible"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"GDG",
+		"GDG",
+		"GGG"
+	],
+	"key": {
+		"G": {
+			"item": "minecraft:glass"
+		},
+		"D": {
+			"item": "minecraft:diamond"
+		}
+	}
+}
