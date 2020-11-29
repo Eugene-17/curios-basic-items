@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:ring_combat"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"EBE",
+		"BRB",
+		"EBE"
+	],
+	"key": {
+		"R": {
+			"item": "curiosbasicitems:ring_simple"
+        },
+        "B": {
+			"item": "minecraft:white_banner"
+        },
+        "E": {
+			"item": "minecraft:emerald"
+        }
+	}
+}

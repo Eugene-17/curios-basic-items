@@ -70,8 +70,8 @@ public class GlovesRegister {
                     String identifier) {
                         Multimap<EntityAttribute, EntityAttributeModifier> attributes = HashMultimap.create();
                         if (CuriosApi.getCuriosHelper().getCurioTags(itemStack.getItem()).contains(identifier)) {
-                            attributes.put(EntityAttributes.GENERIC_ARMOR,
-                            new EntityAttributeModifier(GloveDiamond.ARMOR_UUID, "Armor bonus", 1,
+                            attributes.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                            new EntityAttributeModifier(GloveDiamond.ATTACK_UUID, "Armor bonus", 1,
                                 Operation.ADDITION));
                         }
                         return attributes;
@@ -97,8 +97,8 @@ public class GlovesRegister {
                     String identifier) {
                         Multimap<EntityAttribute, EntityAttributeModifier> attributes = HashMultimap.create();
                         if (CuriosApi.getCuriosHelper().getCurioTags(itemStack.getItem()).contains(identifier)) {
-                            attributes.put(EntityAttributes.GENERIC_ARMOR,
-                            new EntityAttributeModifier(GloveNetherite.ARMOR_UUID, "Armor bonus", 2,
+                            attributes.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                            new EntityAttributeModifier(GloveNetherite.ATTACK_UUID, "Armor bonus", 2,
                                 Operation.ADDITION));
                         }
                         return attributes;
@@ -125,8 +125,8 @@ public class GlovesRegister {
                     String identifier) {
                         Multimap<EntityAttribute, EntityAttributeModifier> attributes = HashMultimap.create();
                         if (CuriosApi.getCuriosHelper().getCurioTags(itemStack.getItem()).contains(identifier)) {
-                            attributes.put(EntityAttributes.GENERIC_ARMOR,
-                            new EntityAttributeModifier(GlovePower.ARMOR_UUID, "Armor bonus", 2,
+                            attributes.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                            new EntityAttributeModifier(GlovePower.ATTACK_UUID, "Armor bonus", 2,
                                 Operation.ADDITION));
                         }
                         return attributes;

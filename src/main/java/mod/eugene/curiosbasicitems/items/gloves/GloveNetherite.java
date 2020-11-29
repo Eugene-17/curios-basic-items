@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
 public class GloveNetherite extends Item {
-    public static final UUID ARMOR_UUID = UUID.fromString("76e89689-9a33-40db-8bb3-c0cd3e5770aa");
+    public static final UUID ATTACK_UUID = UUID.fromString("76e89689-9a33-40db-8bb3-c0cd3e5770aa");
 
     public GloveNetherite() {
         super(new Item.Settings().group(CuriosItemGroup.CURIOS_BASIC_ITEMS).maxCount(1).maxDamage(2000));

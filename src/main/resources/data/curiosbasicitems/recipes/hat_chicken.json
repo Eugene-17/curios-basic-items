@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:hat_chicken"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"FCF",
+		"FCF",
+		"SCS"
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:chicken"
+		},
+		"F": {
+			"item": "minecraft:feather"
+		},
+		"S": {
+			"item": "minecraft:string"
+		}
+	}
+}

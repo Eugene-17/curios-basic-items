@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:ring_levitation"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		" E ",
+		"SRS",
+		" E "
+	],
+	"key": {
+		"R": {
+			"item": "curiosbasicitems:ring_simple"
+        },
+        "S": {
+			"item": "minecraft:shulker_shell"
+        },
+        "E": {
+			"item": "minecraft:ender_pearl"
+        }
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:ring_luckier"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		" D ",
+		"DRD",
+		" D "
+	],
+	"key": {
+		"R": {
+			"item": "curiosbasicitems:ring_luck"
+        },
+        "D": {
+			"item": "minecraft:diamond"
+        }
+	}
+}

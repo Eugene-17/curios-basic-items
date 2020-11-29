@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:hat_conduit"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"CIC",
+		"I I",
+		"CIC"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"C": {
+			"item": "minecraft:heart_of_the_sea"
+		}
+	}
+}

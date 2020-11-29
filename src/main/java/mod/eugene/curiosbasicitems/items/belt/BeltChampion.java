@@ -18,4 +18,9 @@ public class BeltChampion extends BeltLeather {
         tooltip.add(new TranslatableText("item.curiosbasicitems.allow_instant_eat.tooltip"));
         tooltip.add(new TranslatableText("item.curiosbasicitems.belt_champion.tooltip"));
     }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
 }   

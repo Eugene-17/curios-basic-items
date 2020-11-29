@@ -5,6 +5,8 @@ import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
 import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
 import mod.eugene.curiosbasicitems.items.cloaks.CloaksRegister;
 import mod.eugene.curiosbasicitems.items.gloves.GlovesRegister;
+import mod.eugene.curiosbasicitems.items.hats.HatsRegister;
+import mod.eugene.curiosbasicitems.items.rings.RingsRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
@@ -52,6 +54,8 @@ public class CuriosBasicItems implements ModInitializer {
         BeltsRegister.register();
         CloaksRegister.register();
         GlovesRegister.register();
+        HatsRegister.register();
+        RingsRegister.register();
 		BraceletsRegister.register();
 		WorkBenchesRegister.register();
         CuriosItemGroup.setDefaultItemGroup();

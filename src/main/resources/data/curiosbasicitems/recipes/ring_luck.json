@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:ring_luck"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		" F ",
+		"FRF",
+		" F "
+	],
+	"key": {
+		"R": {
+			"item": "curiosbasicitems:ring_simple"
+        },
+        "F": {
+			"item": "minecraft:rabbit_foot"
+        }
+	}
+}
