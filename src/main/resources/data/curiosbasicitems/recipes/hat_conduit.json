@@ -4,13 +4,13 @@
 	},
 	"type": "crafting_shaped",
 	"pattern": [
-		"CIC",
 		"I I",
-		"CIC"
+		"C C",
+		"ICI"
 	],
 	"key": {
 		"I": {
-			"item": "minecraft:iron_ingot"
+			"item": "minecraft:nautilus_shell"
 		},
 		"C": {
 			"item": "minecraft:heart_of_the_sea"
