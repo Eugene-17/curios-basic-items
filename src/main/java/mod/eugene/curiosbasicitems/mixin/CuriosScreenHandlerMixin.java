@@ -3,37 +3,43 @@ package mod.eugene.curiosbasicitems.mixin;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
 import org.spongepowered.asm.mixin.injection.At;
 
 import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
+
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.CraftingScreenHandler;
+import net.minecraft.screen.slot.Slot;
+
 import net.minecraft.item.FishingRodItem;
 import net.minecraft.item.FlintAndSteelItem;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.OnAStickItem;
 import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.item.TridentItem;
-import net.minecraft.screen.AbstractRecipeScreenHandler;
-import net.minecraft.screen.PlayerScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.item.PotionItem;
-import net.minecraft.enchantment.EnchantmentHelper;
 
-@Mixin(PlayerScreenHandler.class)
-public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandler<CraftingInventory> {
 
-    public PlayerScreenHandlerMixin(ScreenHandlerType<PlayerScreenHandler> screenHandlerType, int i) {
-        super(screenHandlerType, i);
+import top.theillusivec4.curios.common.inventory.screen.CuriosScreenHandler;
+@Environment(EnvType.CLIENT)
+@Mixin(CuriosScreenHandler.class)
+public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
+
+    protected final PlayerInventory playerInventory;
+    public CuriosScreenHandlerMixin(int syncId, PlayerInventory playerInventory) {
+        super(syncId, playerInventory);
+        this.playerInventory = playerInventory;
     }
 
     @Inject(method = "<init>*", at = @At("RETURN"))
-    private void onConstructed(PlayerInventory inventory, boolean onServer, PlayerEntity owner, CallbackInfo info) {
+    private void onConstructed(int syncId, PlayerInventory inventory, CallbackInfo info) {
+        PlayerEntity owner = inventory.player;
         Slot leftBeltSlot = new Slot(inventory, 41, 77, 44) {
             @Override
             public int getMaxItemCount() {

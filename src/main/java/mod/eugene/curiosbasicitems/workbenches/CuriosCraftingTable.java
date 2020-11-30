@@ -26,7 +26,7 @@ public class CuriosCraftingTable extends CuriosWorkbenches {
 		return new SimpleNamedScreenHandlerFactory(
 					(int_, playerInventory_, playerEntity_) 
 				-> 
-					new CuriosCraftingTableScreen(int_, playerInventory_,
+					new CuriosCraftingTableScreenHandler(int_, playerInventory_,
 						ScreenHandlerContext.create(world_, blockPos_)),
 				CRAFTING_TABLE_TEXT
 		);
