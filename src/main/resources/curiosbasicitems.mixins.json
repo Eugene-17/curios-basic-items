@@ -13,7 +13,9 @@
     "InGameHudMixin",
     "CuriosScreenHandlerMixin",
     "CuriosScreenMixin",
-    "HandledScreenMixin"
+    "HandledScreenMixin",
+    "InventoryScreenMixin",
+    "PlayerScreenHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

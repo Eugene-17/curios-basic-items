@@ -57,18 +57,19 @@ public class ClientRegister implements ClientModInitializer {
                 if (switchLeftBeltSlot.wasPressed()) switchItem(41);
                 if (switchRightBeltSlot.wasPressed()) switchItem(42);
                 if (switchPotionBeltSlot.wasPressed()) switchItem(43);
-                if (eatPotionBeltSlot.isPressed()) {
-                    if(BeltLeather.allowInstantEat(clientPlayerEntity)) eatItem(43);
-                    else {
-                        if (counter == 0) switchItem(1043);
-                        minecraftClient.options.keyUse.setPressed(true);
-                        counter = 4;
-                    }
+
+                //Press
+                if(eatPotionBeltSlot.wasPressed() && BeltLeather.allowInstantEat(clientPlayerEntity)) eatItem(43);
+
+                //Hold
+                if (eatPotionBeltSlot.isPressed() && !BeltLeather.allowInstantEat(clientPlayerEntity)) {
+                    if (counter == 0) switchItem(1043);
+                    minecraftClient.options.keyUse.setPressed(true);
+                    counter = 4;
                 } else if (counter == 3){
                     minecraftClient.options.keyUse.setPressed(false);
                     switchItem(1043);
                 }
-                
             }
         }));
 
