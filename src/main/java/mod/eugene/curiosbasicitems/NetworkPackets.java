@@ -28,10 +28,20 @@ public class NetworkPackets {
         ServerSidePacketRegistry.INSTANCE.register(SWITCH_PACKET, (context, buffer) -> {
             PlayerEntity player = context.getPlayer();
             int slot = buffer.readInt();
+            boolean force = false;
+            if (slot > 1000){
+                slot -=1000;
+                force = true;
+            }
             int selectedSlot = player.inventory.selectedSlot;
             ItemStack selectedStack = (ItemStack) player.inventory.getStack(selectedSlot);
             ItemStack slotStack = (ItemStack) player.inventory.getStack(slot);
             if(BeltLeather.isWearingBelt(player)){
+                if(force){
+                    player.inventory.setStack(slot, selectedStack);
+                    player.inventory.setStack(selectedSlot, slotStack);
+                    player.inventory.markDirty();
+                }
                 if (isItemAllowed(selectedStack, slot)) {
                     player.inventory.setStack(slot, selectedStack);
                     player.inventory.setStack(selectedSlot, slotStack);
@@ -79,9 +89,10 @@ public class NetworkPackets {
             ItemStack itemStack = buffer.readItemStack();
             context.getTaskQueue().execute(() -> {
                 if (context.getPlayer().world.getEntityById(entityId) != null) {
-                PlayerEntity player = (PlayerEntity) context.getPlayer().world.getEntityById(entityId);
-                player.inventory.setStack(slot, itemStack.copy());
+                    PlayerEntity player = (PlayerEntity) context.getPlayer().world.getEntityById(entityId);
+                    player.inventory.setStack(slot, itemStack.copy());
                 }
+                CuriosBasicItems.LOGGER.info("update visual");
             });
         });
     }

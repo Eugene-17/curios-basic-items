@@ -14,6 +14,7 @@ import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 import io.netty.buffer.Unpooled;
+import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
 import mod.eugene.curiosbasicitems.models.ModelRegister;
 
 public class ClientRegister implements ClientModInitializer {
@@ -35,6 +36,7 @@ public class ClientRegister implements ClientModInitializer {
     public static boolean rightBeltSlotKeyLock;
     public static boolean potionBeltSlotKeyLock;
 
+    public static int counter = 0;
 
     @Override
     public void onInitializeClient() {
@@ -45,42 +47,28 @@ public class ClientRegister implements ClientModInitializer {
         eatPotionBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_EATBELT_DESC, GLFW.GLFW_KEY_E, CONFIG_CATEGORY));
 
         ClientTickEvents.END_CLIENT_TICK.register((minecraftClient -> {
+            if(counter > 0) counter -= 1;
             ClientPlayerEntity clientPlayerEntity = minecraftClient.player;
             if (clientPlayerEntity != null){
                 if (openCuriosCraftingTable.wasPressed()) {
                     ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.ACCESS_BACKSLOT, new PacketByteBuf(Unpooled.buffer()));
                 }
 
-                if (switchLeftBeltSlot.wasPressed()) {
-                    if (!leftBeltSlotKeyLock) {
-                        switchItem(41);
+                if (switchLeftBeltSlot.wasPressed()) switchItem(41);
+                if (switchRightBeltSlot.wasPressed()) switchItem(42);
+                if (switchPotionBeltSlot.wasPressed()) switchItem(43);
+                if (eatPotionBeltSlot.isPressed()) {
+                    if(BeltLeather.allowInstantEat(clientPlayerEntity)) eatItem(43);
+                    else {
+                        if (counter == 0) switchItem(1043);
+                        minecraftClient.options.keyUse.setPressed(true);
+                        counter = 4;
                     }
-                    leftBeltSlotKeyLock = true;
-                } else {
-                    leftBeltSlotKeyLock = false;
+                } else if (counter == 3){
+                    minecraftClient.options.keyUse.setPressed(false);
+                    switchItem(1043);
                 }
-
-                if (switchRightBeltSlot.wasPressed()) {
-                    if (!leftBeltSlotKeyLock) {
-                        switchItem(42);
-                    }
-                    rightBeltSlotKeyLock = true;
-                } else {
-                    rightBeltSlotKeyLock = false;
-                }
-
-                if (switchPotionBeltSlot.wasPressed()) {
-                    if (!leftBeltSlotKeyLock) {
-                        switchItem(43);
-                    }
-                    potionBeltSlotKeyLock = true;
-                } else {
-                    potionBeltSlotKeyLock = false;
-                }
-
-                if (eatPotionBeltSlot.wasPressed()){
-                    eatItem(43);
-                }
+                
             }
         }));
 
