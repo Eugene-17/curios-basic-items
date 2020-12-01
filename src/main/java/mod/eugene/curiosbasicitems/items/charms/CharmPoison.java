@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.items.rings;
+package mod.eugene.curiosbasicitems.items.charms;
 
 import java.util.List;
 import net.minecraft.client.item.TooltipContext;
@@ -8,19 +8,14 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
-public class RingLuckier extends Item {
+public class CharmPoison extends Item {
 
-    public RingLuckier() {
+    public CharmPoison() {
         super(new Item.Settings().group(CuriosItemGroup.CURIOS_BASIC_ITEMS).maxCount(1).maxDamage(2000));
     }
     
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.curiosbasicitems.ring_luckier.tooltip"));
-    }
-
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
+        tooltip.add(new TranslatableText("item.curiosbasicitems.charm_poison.tooltip"));
     }
 }   

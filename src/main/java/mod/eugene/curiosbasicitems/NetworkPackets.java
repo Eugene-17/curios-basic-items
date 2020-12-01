@@ -101,7 +101,7 @@ public class NetworkPackets {
     private static boolean isItemAllowed(ItemStack stack, int slot) {
         if (stack.isEmpty()) return true;
 
-        if ((slot == 41 || slot == 42 || slot == 43) 
+        if ((slot == 41 || slot == 42) 
         && (stack.getItem() instanceof ToolItem 
         || stack.getItem() instanceof RangedWeaponItem
         || stack.getItem() instanceof FishingRodItem 

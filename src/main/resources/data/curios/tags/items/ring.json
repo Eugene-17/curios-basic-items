@@ -3,8 +3,7 @@
   "values": [
     "curiosbasicitems:ring_simple",
     "curiosbasicitems:ring_combat",
-    "curiosbasicitems:ring_luck",
-    "curiosbasicitems:ring_luckier",
-    "curiosbasicitems:ring_levitation"
+    "curiosbasicitems:ring_levitation",
+    "curiosbasicitems:ring_berserk"
   ]
 }

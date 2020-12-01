@@ -1,0 +1,22 @@
+{
+	"result": {
+		"item": "curiosbasicitems:charm_luckier"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"GDG",
+		"DCD",
+		"GDG"
+	],
+	"key": {
+		"C": {
+			"item": "curiosbasicitems:charm_luck"
+        },
+        "D": {
+			"item": "minecraft:diamond"
+        },
+        "G": {
+			"item": "minecraft:gold_block"
+        }
+	}
+}

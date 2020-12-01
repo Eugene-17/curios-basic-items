@@ -4,16 +4,16 @@
 	},
 	"type": "crafting_shaped",
 	"pattern": [
-		"EBE",
-		"BRB",
-		"EBE"
+		"EEE",
+		"ARA",
+		"EEE"
 	],
 	"key": {
 		"R": {
 			"item": "curiosbasicitems:ring_simple"
         },
-        "B": {
-			"item": "minecraft:white_banner"
+        "A": {
+			"item": "minecraft:iron_axe"
         },
         "E": {
 			"item": "minecraft:emerald"

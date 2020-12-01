@@ -3,6 +3,7 @@ package mod.eugene.curiosbasicitems;
 import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
 import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
 import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
+import mod.eugene.curiosbasicitems.items.charms.CharmRegister;
 import mod.eugene.curiosbasicitems.items.cloaks.CloaksRegister;
 import mod.eugene.curiosbasicitems.items.gloves.GlovesRegister;
 import mod.eugene.curiosbasicitems.items.hats.HatsRegister;
@@ -56,7 +57,8 @@ public class CuriosBasicItems implements ModInitializer {
         GlovesRegister.register();
         HatsRegister.register();
         RingsRegister.register();
-		BraceletsRegister.register();
+        BraceletsRegister.register();
+        CharmRegister.register();
 		WorkBenchesRegister.register();
         CuriosItemGroup.setDefaultItemGroup();
 	}	

@@ -1,6 +1,15 @@
 package mod.eugene.curiosbasicitems.items.belt;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
+
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
+import mod.eugene.curiosbasicitems.items.charms.CharmHunger;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -11,6 +20,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosComponent;
 import top.theillusivec4.curios.api.type.component.ICurio;
 import net.minecraft.world.World;
@@ -62,8 +72,9 @@ public class BeltsRegister {
                     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
                         // Decrese a hunger per 20 seconds
                         if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 400 == 0) {
-                            livingEntity.addStatusEffect(
-                                new StatusEffectInstance(StatusEffects.HUNGER, 20, 80, true, true));
+                            if(!CharmHunger.isWearingHungerCharm(livingEntity)){
+                                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20, 80, true, true));
+                            }
                         }
                     }
         })));
@@ -81,12 +92,19 @@ public class BeltsRegister {
                     }
 
                     @Override
-                    public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-                        // Increase SATURATION per 60 seconds
-                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 1200 == 0) {
-                            livingEntity.addStatusEffect(
-                                new StatusEffectInstance(StatusEffects.SATURATION, 1, 1, true, true));
+                    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(
+                    String identifier) {
+                        Multimap<EntityAttribute, EntityAttributeModifier> attributes = HashMultimap.create();
+                        if (CuriosApi.getCuriosHelper().getCurioTags(itemStack.getItem()).contains(identifier)) {
+                            attributes.put(EntityAttributes.GENERIC_ARMOR,
+                            new EntityAttributeModifier(BeltChampion.ARMOR_UUID, "Armor bonus", 1,
+                                Operation.ADDITION));
+
+                            attributes.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                            new EntityAttributeModifier(BeltChampion.ATTACK_UUID, "Attack bonus", 1,
+                                Operation.ADDITION));
                         }
+                        return attributes;
                     }
         })));
     }

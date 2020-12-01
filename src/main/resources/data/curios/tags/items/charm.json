@@ -1,0 +1,9 @@
+{
+  "replace": "false",
+  "values": [
+    "curiosbasicitems:charm_luck",
+    "curiosbasicitems:charm_luckier",
+    "curiosbasicitems:charm_hunger",
+    "curiosbasicitems:charm_poison"
+  ]
+}
