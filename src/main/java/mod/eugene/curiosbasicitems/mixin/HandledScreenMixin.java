@@ -22,7 +22,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> extends Screen
     }
 
     @Inject(method = "isPauseScreen", at = @At("HEAD"), cancellable = true)
-    public void isPauseScreen(CallbackInfoReturnable cir) {
+    public void isPauseScreen(CallbackInfoReturnable<Boolean> cir) {
 
         if((Object)this instanceof CuriosScreen || (Object)this.getScreenHandler() instanceof CraftingScreenHandler) {
             cir.setReturnValue(true);

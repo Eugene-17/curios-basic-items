@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
-public class BraceletGildedNetherite extends Item {
+public class BraceletGildedNetherite extends Bracelet {
     public static final UUID ARMOR_UUID = UUID.fromString("a118d149-5626-40d4-9fd0-e7d5e80b87ff");
     public static final UUID ATTACK_UUID = UUID.fromString("a364bcc2-8bf2-45db-85df-9f51f423a03d");
 

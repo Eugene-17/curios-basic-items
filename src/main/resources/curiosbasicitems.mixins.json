@@ -6,7 +6,8 @@
   "mixins": [
     "PiglinBrainMixin",
     "PlayerInventoryMixin",
-    "EntityTrackerEntryMixin"
+    "EntityTrackerEntryMixin",
+    "EnchantmentMixin"
   ],
   "client": [
     "ItemAccessor",

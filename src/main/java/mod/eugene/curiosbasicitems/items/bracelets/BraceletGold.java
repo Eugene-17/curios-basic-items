@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
-public class BraceletGold extends Item {
+public class BraceletGold extends Bracelet {
     public static final UUID ARMOR_UUID = UUID.fromString("3a552885-f757-4230-a876-f7288d759925");
     
     public BraceletGold() {

@@ -5,7 +5,7 @@ import java.util.UUID;
 import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
 import net.minecraft.item.Item;
 
-public class BraceletDiamond extends Item {
+public class BraceletDiamond extends Bracelet {
     public static final UUID ATTACK_UUID = UUID.fromString("804011ab-a9cc-425b-bd92-d6ea67fd2206");
 
     public BraceletDiamond() {
