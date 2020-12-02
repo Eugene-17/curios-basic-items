@@ -10,7 +10,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import top.theillusivec4.curios.api.CuriosComponent;
 import top.theillusivec4.curios.api.type.component.ICurio;
 
-public class CharmRegister {
+public class _CharmRegister {
     public static final CharmLuck LUCK_CHARM = new CharmLuck();
     public static final CharmLuckier LUCKIER_CHARM = new CharmLuckier();
     public static final CharmPoison POISON_CHARM = new CharmPoison();

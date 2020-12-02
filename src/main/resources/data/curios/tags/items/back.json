@@ -1,9 +1,10 @@
 {
         "replace": false,
         "values": [
-                "curiosbasicitems:curios_crafting_table",
-                "curiosbasicitems:cloak_invisible",
-                "curiosbasicitems:cloak_fire",
-                "curiosbasicitems:cloak_heavy"
+            "curiosbasicitems:curios_crafting_table",
+            "curiosbasicitems:cloak_invisible",
+            "curiosbasicitems:cloak_fire",
+            "curiosbasicitems:cloak_heavy",
+            "curiosbasicitems:cloak_king"
         ]
 }

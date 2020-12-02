@@ -18,7 +18,7 @@ public class CharmWither extends Item {
     
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.curiosbasicitems.charm_hunger.tooltip"));
+        tooltip.add(new TranslatableText("item.curiosbasicitems.charm_wither.tooltip"));
     }
 
     public static boolean isWearingWitherCharm(LivingEntity livingEntity) {

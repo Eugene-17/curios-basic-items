@@ -1,6 +1,6 @@
 package mod.eugene.curiosbasicitems.models;
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
-import mod.eugene.curiosbasicitems.items.necklace.AmuletsRegister;
+import mod.eugene.curiosbasicitems.items.necklace._AmuletRegister;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
@@ -38,8 +38,8 @@ public class ModelRegister {
     }
 
     public static void register() {
-        register_amulet(AmuletsRegister.IRON_HEALTH_AMULET, IRON_AMULET_TEXTURE);
-        register_amulet(AmuletsRegister.NETHERITE_HEALTH_AMULET, NETHERITE_AMULET_TEXTURE);
-        register_amulet(AmuletsRegister.STAR_HEALTH_AMULET, STAR_AMULET_TEXTURE);
+        register_amulet(_AmuletRegister.IRON_HEALTH_AMULET, IRON_AMULET_TEXTURE);
+        register_amulet(_AmuletRegister.NETHERITE_HEALTH_AMULET, NETHERITE_AMULET_TEXTURE);
+        register_amulet(_AmuletRegister.STAR_HEALTH_AMULET, STAR_AMULET_TEXTURE);
     }
 }

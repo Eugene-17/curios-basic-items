@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.workbenches;
+package mod.eugene.curiosbasicitems.items.back;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.CraftingScreenHandler;

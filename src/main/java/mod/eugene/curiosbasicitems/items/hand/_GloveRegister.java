@@ -22,7 +22,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
 import net.minecraft.entity.attribute.EntityAttributes;
 
 
-public class GlovesRegister {
+public class _GloveRegister {
     public static final GloveLeather LEATHER_GLOVE = new GloveLeather();
     public static final GloveDiamond DIAMOND_GLOVE = new GloveDiamond();
     public static final GloveNetherite NETHERITE_GLOVE = new GloveNetherite();
@@ -113,10 +113,10 @@ public class GlovesRegister {
                         Item activeItem = livingEntity.getMainHandStack().getItem();
                         if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0){
                             if(!(activeItem instanceof ToolItem || activeItem instanceof TridentItem )){
-                                livingEntity.addStatusEffect( new StatusEffectInstance(StatusEffects.STRENGTH, 20, 2, true, true));
+                                livingEntity.addStatusEffect( new StatusEffectInstance(StatusEffects.STRENGTH, 21, 2, true, true));
                             }
-                            else livingEntity.addStatusEffect( new StatusEffectInstance(StatusEffects.STRENGTH, 20, 1, true, true));
-                            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 21, 0, true, true));
+                            else livingEntity.addStatusEffect( new StatusEffectInstance(StatusEffects.STRENGTH, 21, 1, true, true));
+                            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 21, 1, true, true));
                         }
                     }
 

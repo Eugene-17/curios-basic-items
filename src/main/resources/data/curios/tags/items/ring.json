@@ -1,9 +1,9 @@
 {
-  "replace": "false",
-  "values": [
-    "curiosbasicitems:ring_simple",
-    "curiosbasicitems:ring_combat",
-    "curiosbasicitems:ring_levitation",
-    "curiosbasicitems:ring_berserk"
-  ]
+    "replace": "false",
+    "values": [
+        "curiosbasicitems:ring_simple",
+        "curiosbasicitems:ring_combat",
+        "curiosbasicitems:ring_levitation",
+        "curiosbasicitems:ring_berserk"
+    ]
 }

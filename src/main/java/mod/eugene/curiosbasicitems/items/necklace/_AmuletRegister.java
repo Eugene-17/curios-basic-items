@@ -18,7 +18,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class AmuletsRegister {
+public class _AmuletRegister {
     public static final AmuletIron IRON_HEALTH_AMULET = new AmuletIron();
 	public static final AmuletNetherite NETHERITE_HEALTH_AMULET = new AmuletNetherite();
     public static final AmuletStar STAR_HEALTH_AMULET = new AmuletStar();
@@ -115,7 +115,7 @@ public class AmuletsRegister {
 					public void onEquip(String identifier, int index, LivingEntity livingEntity) {
 						if (livingEntity instanceof PlayerEntity) {
                             EntityAttributeModifier modifier = new EntityAttributeModifier(
-                                AmuletStar.HEALTH_UUID, "Health bonus", 20, Operation.ADDITION);
+                                AmuletStar.HEALTH_UUID, "Health bonus", 21, Operation.ADDITION);
                             EntityAttributeInstance maxHealthAttr = livingEntity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
                             maxHealthAttr.removeModifier(modifier);
                             maxHealthAttr.addPersistentModifier(modifier);

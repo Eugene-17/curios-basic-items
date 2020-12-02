@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.workbenches;
+package mod.eugene.curiosbasicitems.items.back;
 
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import mod.eugene.curiosbasicitems.NetworkPackets;
@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import mod.eugene.curiosbasicitems.items.CuriosItemGroup;
 
-public class WorkBenchesRegister {
+public class _BackItemRegister {
     public static final Item CURIOS_CRAFTING_TABLE = new CuriosCraftingTable(new Item.Settings().group(CuriosItemGroup.CURIOS_BASIC_ITEMS).maxCount(1));
 
     public static void register(){
@@ -23,9 +23,9 @@ public class WorkBenchesRegister {
 			PlayerEntity playerEntity = packetContext.getPlayer();
 			if (playerEntity != null) {
 			  	CuriosApi.getCuriosHelper().findEquippedCurio((itemStack) -> itemStack
-					.getItem() instanceof CuriosWorkbenches, playerEntity)
+					.getItem() instanceof BackItem, playerEntity)
 					.ifPresent(found -> {
-						((CuriosWorkbenches) found.right.getItem()).useWorkbench(playerEntity.getEntityWorld(), playerEntity);
+						((BackItem) found.right.getItem()).useBackItem(playerEntity.getEntityWorld(), playerEntity);
 					});
 			}
         }))));

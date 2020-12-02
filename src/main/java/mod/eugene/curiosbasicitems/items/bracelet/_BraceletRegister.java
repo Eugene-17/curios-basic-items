@@ -18,7 +18,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class BraceletsRegister {
+public class _BraceletRegister {
     public static final BraceletIron IRON_BRACELET = new BraceletIron();
 	public static final BraceletGold GOLD_BRACELET = new BraceletGold();
     public static final BraceletDiamond DIAMOND_BRACELET = new BraceletDiamond();

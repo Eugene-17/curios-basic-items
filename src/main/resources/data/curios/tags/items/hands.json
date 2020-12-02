@@ -1,9 +1,9 @@
 {
   "replace": "false",
   "values": [
-      "curiosbasicitems:glove_leather",
-      "curiosbasicitems:glove_diamond",
-      "curiosbasicitems:glove_netherite",
-      "curiosbasicitems:glove_power"
+        "curiosbasicitems:glove_leather",
+        "curiosbasicitems:glove_diamond",
+        "curiosbasicitems:glove_netherite",
+        "curiosbasicitems:glove_power"
     ]
 }

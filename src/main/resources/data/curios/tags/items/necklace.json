@@ -1,8 +1,8 @@
 {
-  "replace": "false",
-  "values": [
-    "curiosbasicitems:amulet_iron",
-    "curiosbasicitems:amulet_netherite",
-    "curiosbasicitems:amulet_star"
-  ]
+    "replace": "false",
+    "values": [
+        "curiosbasicitems:amulet_iron",
+        "curiosbasicitems:amulet_netherite",
+        "curiosbasicitems:amulet_star"
+    ]
 }

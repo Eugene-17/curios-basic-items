@@ -10,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
 
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import mod.eugene.curiosbasicitems.items.charm.CharmHunger;
+import mod.eugene.curiosbasicitems.items.hat.HatKing;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -26,7 +27,7 @@ import top.theillusivec4.curios.api.type.component.ICurio;
 import net.minecraft.world.World;
 
 
-public class BeltsRegister {
+public class _BeltRegister {
     public static final BeltLeather LEATHER_WORK_BELT = new BeltLeather();
     public static final BeltGluttony GLUTTONY_BELT = new BeltGluttony();
     public static final BeltChampion CHAMPION_BELT = new BeltChampion();
@@ -71,9 +72,9 @@ public class BeltsRegister {
                     @Override
                     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
                         // Decrese a hunger per 20 seconds
-                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 400 == 0) {
-                            if(!CharmHunger.isWearingHungerCharm(livingEntity)){
-                                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20, 80, true, true));
+                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 400 == 0 ) {
+                            if(!CharmHunger.isWearingHungerCharm(livingEntity) && !HatKing.isWearingKingCrown(livingEntity)){
+                                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 21, 80, true, true));
                             }
                         }
                     }

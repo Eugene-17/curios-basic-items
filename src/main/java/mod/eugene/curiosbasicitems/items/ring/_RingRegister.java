@@ -8,6 +8,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
 
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import mod.eugene.curiosbasicitems.items.charm.CharmWither;
+import mod.eugene.curiosbasicitems.items.hat.HatKing;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -15,13 +16,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosComponent;
 import top.theillusivec4.curios.api.type.component.ICurio;
 
 
-public class RingsRegister {
+public class _RingRegister {
     public static final RingSimple SIMPLE_RING = new RingSimple();
     public static final RingCombat COMBAT_RING = new RingCombat();
     public static final RingLevitation LEVITATION_RING = new RingLevitation();
@@ -44,7 +44,7 @@ public class RingsRegister {
 
                     @Override
                     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 21 == 0) {
+                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 35 == 0) {
                             livingEntity.addStatusEffect(
                                 new StatusEffectInstance(StatusEffects.BAD_OMEN, 21, 1, true, true));
                         }
@@ -84,7 +84,7 @@ public class RingsRegister {
                     @Override
                     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
                         if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
-                            if(!CharmWither.isWearingWitherCharm(livingEntity)){
+                            if(!CharmWither.isWearingWitherCharm(livingEntity) && !HatKing.isWearingKingCrown(livingEntity)){
                                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 21, 1, true, true));
                             }
                         }

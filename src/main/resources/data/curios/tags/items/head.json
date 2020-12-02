@@ -1,9 +1,10 @@
 {
-  "replace": "false",
-  "values": [
-    "curiosbasicitems:hat_chicken",
-    "curiosbasicitems:hat_conduit",
-    "curiosbasicitems:hat_slime",
-    "curiosbasicitems:hat_zombie"
-  ]
+    "replace": "false",
+    "values": [
+        "curiosbasicitems:hat_chicken",
+        "curiosbasicitems:hat_conduit",
+        "curiosbasicitems:hat_slime",
+        "curiosbasicitems:hat_zombie",
+        "curiosbasicitems:hat_king"
+    ]
 }

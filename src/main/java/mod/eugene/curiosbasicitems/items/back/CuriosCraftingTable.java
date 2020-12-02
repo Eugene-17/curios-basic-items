@@ -1,4 +1,4 @@
-package mod.eugene.curiosbasicitems.workbenches;
+package mod.eugene.curiosbasicitems.items.back;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
@@ -8,7 +8,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CuriosCraftingTable extends CuriosWorkbenches {
+public class CuriosCraftingTable extends BackItem {
     private static final Text CRAFTING_TABLE_TEXT = new TranslatableText("container.crafting", new Object[0]);
     
     public CuriosCraftingTable(Settings settings) {
@@ -16,7 +16,7 @@ public class CuriosCraftingTable extends CuriosWorkbenches {
     }
 
     @Override
-    public void useWorkbench(World world_, PlayerEntity player_) {
+    public void useBackItem(World world_, PlayerEntity player_) {
         if (!world_.isClient()) {
             player_.openHandledScreen(openCuriosCraftingTable(world_, player_.getBlockPos()));
         }

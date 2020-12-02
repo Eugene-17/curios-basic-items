@@ -19,16 +19,18 @@ import top.theillusivec4.curios.api.CuriosComponent;
 import top.theillusivec4.curios.api.type.component.ICurio;
 
 
-public class CloaksRegister {
+public class _CloakRegister {
     public static final CloakInvisibility INVISIBILITY_CLOAK = new CloakInvisibility();
     public static final CloakFire FIRE_CLOAK = new CloakFire();
     public static final CloakHeavy HEAVY_CLOAK = new CloakHeavy();
+    public static final CloakKing KING_CLOAK = new CloakKing();
 
     public static void register() {
         //Register new item
         Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "cloak_invisible"), INVISIBILITY_CLOAK);
         Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "cloak_fire"), FIRE_CLOAK);
         Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "cloak_heavy"), HEAVY_CLOAK);
+        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "cloak_king"), KING_CLOAK);
 
         //Register items event
 
@@ -76,6 +78,35 @@ public class CloaksRegister {
                             attributes.put(EntityAttributes.GENERIC_MOVEMENT_SPEED,
                             new EntityAttributeModifier(CloakHeavy.SPEED_UUID, "Knockback resistance bonus", -0.1,
                                 Operation.MULTIPLY_TOTAL));
+                        }
+                        return attributes;
+                    }
+        })));
+
+        ItemComponentCallbackV2.event(KING_CLOAK).register(
+            ((item, itemStack, componentContainer) -> componentContainer
+                .put(CuriosComponent.ITEM, new ICurio() {
+
+                    @Override
+                    public void curioTick(String identifier, int index, LivingEntity livingEntity) {
+                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
+                            livingEntity.addStatusEffect(
+                                new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 21, 0, true, true));
+                        }
+                    }
+
+                    @Override
+                    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(
+                    String identifier) {
+                        Multimap<EntityAttribute, EntityAttributeModifier> attributes = HashMultimap.create();
+                        if (CuriosApi.getCuriosHelper().getCurioTags(itemStack.getItem()).contains(identifier)) {
+                            attributes.put(EntityAttributes.GENERIC_ARMOR,
+                            new EntityAttributeModifier(CloakKing.ARMOR_UUID, "Armor bonus", 5,
+                                Operation.ADDITION));
+
+                            attributes.put(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,
+                            new EntityAttributeModifier(CloakKing.KNOCKBACK_UUID, "Knockback resistance bonus", 1,
+                                Operation.ADDITION));
                         }
                         return attributes;
                     }

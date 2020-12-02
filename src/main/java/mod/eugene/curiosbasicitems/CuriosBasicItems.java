@@ -1,14 +1,14 @@
 package mod.eugene.curiosbasicitems;
 
-import mod.eugene.curiosbasicitems.items.back.CloaksRegister;
-import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
-import mod.eugene.curiosbasicitems.items.bracelet.BraceletsRegister;
-import mod.eugene.curiosbasicitems.items.charm.CharmRegister;
-import mod.eugene.curiosbasicitems.items.hand.GlovesRegister;
-import mod.eugene.curiosbasicitems.items.hat.HatsRegister;
-import mod.eugene.curiosbasicitems.items.necklace.AmuletsRegister;
-import mod.eugene.curiosbasicitems.items.ring.RingsRegister;
-import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
+import mod.eugene.curiosbasicitems.items.back._CloakRegister;
+import mod.eugene.curiosbasicitems.items.belt._BeltRegister;
+import mod.eugene.curiosbasicitems.items.bracelet._BraceletRegister;
+import mod.eugene.curiosbasicitems.items.charm._CharmRegister;
+import mod.eugene.curiosbasicitems.items.hand._GloveRegister;
+import mod.eugene.curiosbasicitems.items.hat._HatRegister;
+import mod.eugene.curiosbasicitems.items.necklace._AmuletRegister;
+import mod.eugene.curiosbasicitems.items.ring._RingRegister;
+import mod.eugene.curiosbasicitems.items.back._BackItemRegister;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.sound.SoundEvent;
@@ -51,15 +51,15 @@ public class CuriosBasicItems implements ModInitializer {
 
         NetworkPackets.switchPacketInit();
         NetworkPackets.eatPacketinit();
-        AmuletsRegister.register();
-        BeltsRegister.register();
-        CloaksRegister.register();
-        GlovesRegister.register();
-        HatsRegister.register();
-        RingsRegister.register();
-        BraceletsRegister.register();
-        CharmRegister.register();
-		WorkBenchesRegister.register();
+        _AmuletRegister.register();
+        _BeltRegister.register();
+        _CloakRegister.register();
+        _GloveRegister.register();
+        _HatRegister.register();
+        _RingRegister.register();
+        _BraceletRegister.register();
+        _CharmRegister.register();
+		_BackItemRegister.register();
         CuriosItemGroup.setDefaultItemGroup();
 	}	
 }
