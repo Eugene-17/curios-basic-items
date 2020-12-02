@@ -7,6 +7,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
 
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
+import mod.eugene.curiosbasicitems.items.charms.CharmWither;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -77,8 +78,10 @@ public class RingsRegister {
                 .put(CuriosComponent.ITEM, new ICurio() {
                     @Override
                     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 100 == 0) {
-                            livingEntity.damage(DamageSource.MAGIC, 2);
+                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
+                            if(!CharmWither.isWearingWitherCharm(livingEntity)){
+                                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 21, 0, true, true));
+                            }
                         }
                     }
 

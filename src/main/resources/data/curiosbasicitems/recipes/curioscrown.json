@@ -4,13 +4,13 @@
 	},
 	"type": "crafting_shaped",
 	"pattern": [
-		"GEG",
+		"GCG",
 		"GGG",
 		"   "
 	],
 	"key": {
-		"E": {
-			"item": "minecraft:nether_star"
+		"C": {
+			"item": "minecraft:golden_carrot"
 		},
 		"G": {
 			"item": "minecraft:gold_ingot"

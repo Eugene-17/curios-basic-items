@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "curiosbasicitems:item/ring_berserk"
+    "layer0": "curiosbasicitems:item/charm_poison"
   }
 }

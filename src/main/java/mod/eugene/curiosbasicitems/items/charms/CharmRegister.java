@@ -15,6 +15,7 @@ public class CharmRegister {
     public static final CharmLuckier LUCKIER_CHARM = new CharmLuckier();
     public static final CharmPoison POISON_CHARM = new CharmPoison();
     public static final CharmHunger HUNGER_CHARM = new CharmHunger();
+    public static final CharmWither WITHER_CHARM = new CharmWither();
 
     public static void register() {
         //Register new item
@@ -22,6 +23,7 @@ public class CharmRegister {
         Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "charm_luckier"), LUCKIER_CHARM);
         Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "charm_poison"), POISON_CHARM);
         Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "charm_hunger"), HUNGER_CHARM);
+        Registry.register(Registry.ITEM, new Identifier(CuriosBasicItems.MODID, "charm_wither"), WITHER_CHARM);
 
         //Register items event
 
@@ -70,6 +72,19 @@ public class CharmRegister {
                         if (!livingEntity.getEntityWorld().isClient()) {
                             if(livingEntity.hasStatusEffect(StatusEffects.HUNGER)) {
                                 livingEntity.removeStatusEffect(StatusEffects.HUNGER);
+                            }
+                        }
+                    }
+        })));
+
+        ItemComponentCallbackV2.event(WITHER_CHARM).register(
+            ((item, itemStack, componentContainer) -> componentContainer
+                .put(CuriosComponent.ITEM, new ICurio() {
+                    @Override
+                    public void curioTick(String identifier, int index, LivingEntity livingEntity) {
+                        if (!livingEntity.getEntityWorld().isClient()) {
+                            if(livingEntity.hasStatusEffect(StatusEffects.WITHER)) {
+                                livingEntity.removeStatusEffect(StatusEffects.WITHER);
                             }
                         }
                     }

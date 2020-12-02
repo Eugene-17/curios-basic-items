@@ -26,6 +26,7 @@ public class HatsRegister {
     public static final HatSlime SLIME_HAT = new HatSlime();
     public static final HatConduit CONDUIT_HAT = new HatConduit();
     public static final HatZombie ZOMBIE_HAT = new HatZombie();
+    public static final HatKing HAT_KING = new HatKing();
 
     public static void register() {
         //Register new item
