@@ -17,7 +17,7 @@ import java.util.Iterator;
 @Mixin(PiglinBrain.class)
 public abstract class PiglinBrainMixin {
 	@Inject(method = "wearsGoldArmor(Lnet/minecraft/entity/LivingEntity;)Z", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-	private static void wearsGoldArmorInject(LivingEntity entity, CallbackInfoReturnable<Boolean> cir, Iterable<ItemStack> iterable, Iterator iterator, ItemStack stack, Item item) {
+	private static void wearsGoldArmorInject(LivingEntity entity, CallbackInfoReturnable<Boolean> cir, Iterable<ItemStack> iterable, Iterator<ItemStack> iterator, ItemStack stack, Item item) {
 		CuriosApi.getCuriosHelper().findEquippedCurio(
 				(itemStack) -> itemStack
 					.getItem().isIn(CuriosBasicItems.PIGLIN_SAFE_CURIOS), entity)

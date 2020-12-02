@@ -38,25 +38,31 @@ public class RingsRegister {
 
         //Register items event
 
-        ItemComponentCallbackV2.event(SIMPLE_RING).register(
-            ((item, itemStack, componentContainer) -> componentContainer
-                .put(CuriosComponent.ITEM, new ICurio() {
-                    @Override
-					public void onEquip(String identifier, int index, LivingEntity livingEntity) {
-						if (livingEntity instanceof PlayerEntity) {
-                            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BAD_OMEN, 200, 0, true, true));
-						}
-                    }
-        })));
-
         ItemComponentCallbackV2.event(COMBAT_RING).register(
             ((item, itemStack, componentContainer) -> componentContainer
                 .put(CuriosComponent.ITEM, new ICurio() {
+
                     @Override
-					public void onEquip(String identifier, int index, LivingEntity livingEntity) {
-						if (livingEntity instanceof PlayerEntity) {
-                            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BAD_OMEN, 200, 0, true, true));
-						}
+                    public void curioTick(String identifier, int index, LivingEntity livingEntity) {
+                        if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 21 == 0) {
+                            livingEntity.addStatusEffect(
+                                new StatusEffectInstance(StatusEffects.BAD_OMEN, 21, 1, true, true));
+                        }
+                    }
+
+                    @Override
+                    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(
+                        String identifier) {
+                        Multimap<EntityAttribute, EntityAttributeModifier> attributes = HashMultimap
+                            .create();
+
+                        if (CuriosApi.getCuriosHelper().getCurioTags(itemStack.getItem())
+                            .contains(identifier)) {
+                            attributes.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                                new EntityAttributeModifier(RingCombat.ATTACK_UUID, "Attack bonus", 1,
+                                    Operation.ADDITION));
+                        }
+                        return attributes;
                     }
         })));
 
@@ -79,7 +85,7 @@ public class RingsRegister {
                     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
                         if (!livingEntity.getEntityWorld().isClient() && livingEntity.age % 20 == 0) {
                             if(!CharmWither.isWearingWitherCharm(livingEntity)){
-                                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 21, 0, true, true));
+                                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 21, 1, true, true));
                             }
                         }
                     }
