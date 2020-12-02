@@ -1,13 +1,13 @@
 package mod.eugene.curiosbasicitems;
 
-import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
+import mod.eugene.curiosbasicitems.items.back.CloaksRegister;
 import mod.eugene.curiosbasicitems.items.belt.BeltsRegister;
-import mod.eugene.curiosbasicitems.items.bracelets.BraceletsRegister;
-import mod.eugene.curiosbasicitems.items.charms.CharmRegister;
-import mod.eugene.curiosbasicitems.items.cloaks.CloaksRegister;
-import mod.eugene.curiosbasicitems.items.gloves.GlovesRegister;
-import mod.eugene.curiosbasicitems.items.hats.HatsRegister;
-import mod.eugene.curiosbasicitems.items.rings.RingsRegister;
+import mod.eugene.curiosbasicitems.items.bracelet.BraceletsRegister;
+import mod.eugene.curiosbasicitems.items.charm.CharmRegister;
+import mod.eugene.curiosbasicitems.items.hand.GlovesRegister;
+import mod.eugene.curiosbasicitems.items.hat.HatsRegister;
+import mod.eugene.curiosbasicitems.items.necklace.AmuletsRegister;
+import mod.eugene.curiosbasicitems.items.ring.RingsRegister;
 import mod.eugene.curiosbasicitems.workbenches.WorkBenchesRegister;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;

@@ -9,7 +9,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
 
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
-import mod.eugene.curiosbasicitems.items.charms.CharmHunger;
+import mod.eugene.curiosbasicitems.items.charm.CharmHunger;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

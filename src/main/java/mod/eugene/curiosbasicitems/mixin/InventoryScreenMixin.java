@@ -6,8 +6,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
 
-import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
+import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.DrawableHelper;

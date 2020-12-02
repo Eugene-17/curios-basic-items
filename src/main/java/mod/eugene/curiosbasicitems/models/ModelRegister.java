@@ -1,6 +1,6 @@
 package mod.eugene.curiosbasicitems.models;
 import mod.eugene.curiosbasicitems.CuriosBasicItems;
-import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
+import mod.eugene.curiosbasicitems.items.necklace.AmuletsRegister;
 import nerdhub.cardinal.components.api.event.ItemComponentCallbackV2;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;

@@ -1,6 +1,6 @@
 package mod.eugene.curiosbasicitems.items;
 
-import mod.eugene.curiosbasicitems.items.amulets.AmuletsRegister;
+import mod.eugene.curiosbasicitems.items.necklace.AmuletsRegister;
 import mod.eugene.curiosbasicitems.mixin.ItemAccessor;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
