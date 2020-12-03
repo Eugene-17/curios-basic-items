@@ -136,7 +136,7 @@ public class _HatRegister {
                                     Operation.ADDITION));
 
                             attributes.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                                new EntityAttributeModifier(HatKing.ATTACK_UUID, "Attack bonus", 2,
+                                new EntityAttributeModifier(HatKing.ATTACK_UUID, "Attack bonus", 3,
                                     Operation.ADDITION));
                         }
                         return attributes;
