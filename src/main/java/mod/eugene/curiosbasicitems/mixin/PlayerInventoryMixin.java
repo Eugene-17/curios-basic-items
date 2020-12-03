@@ -40,7 +40,7 @@ public abstract class PlayerInventoryMixin implements Inventory {
 
     private DefaultedList<ItemStack> leftBeltSlot;
     private DefaultedList<ItemStack> rightBeltSlot;
-    private DefaultedList<ItemStack> potionBeltSlot;
+    // private DefaultedList<ItemStack> potionBeltSlot;
 
     public PlayerInventoryMixin(PlayerEntity player) {
     }
@@ -49,12 +49,12 @@ public abstract class PlayerInventoryMixin implements Inventory {
     private void onConstructed(PlayerEntity playerEntity, CallbackInfo info) {
         this.leftBeltSlot = DefaultedList.ofSize(1, ItemStack.EMPTY);
         this.rightBeltSlot = DefaultedList.ofSize(1, ItemStack.EMPTY);
-        this.potionBeltSlot = DefaultedList.ofSize(1, ItemStack.EMPTY);
+        // this.potionBeltSlot = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
         this.combinedInventory = new ArrayList<>(combinedInventory);
         this.combinedInventory.add(leftBeltSlot);
         this.combinedInventory.add(rightBeltSlot);
-        this.combinedInventory.add(potionBeltSlot);
+        // this.combinedInventory.add(potionBeltSlot);
 
         this.combinedInventory = ImmutableList.copyOf(this.combinedInventory);
     }
@@ -73,12 +73,12 @@ public abstract class PlayerInventoryMixin implements Inventory {
             this.rightBeltSlot.get(0).toTag(compoundTag);
             tag.add(compoundTag);
         }
-        if (!this.potionBeltSlot.get(0).isEmpty()) {
-            CompoundTag compoundTag = new CompoundTag();
-            compoundTag.putByte("Slot", (byte) (112));
-            this.potionBeltSlot.get(0).toTag(compoundTag);
-            tag.add(compoundTag);
-        }
+        // if (!this.potionBeltSlot.get(0).isEmpty()) {
+        //     CompoundTag compoundTag = new CompoundTag();
+        //     compoundTag.putByte("Slot", (byte) (112));
+        //     this.potionBeltSlot.get(0).toTag(compoundTag);
+        //     tag.add(compoundTag);
+        // }
     }
 
     @Inject(method = "deserialize", at = @At("TAIL"))
@@ -92,7 +92,7 @@ public abstract class PlayerInventoryMixin implements Inventory {
             if (!itemStack.isEmpty()) {
                 if (slot >= 110 && slot < this.leftBeltSlot.size() + 110) this.leftBeltSlot.set(slot - 110, itemStack);
                 else if (slot >= 111 && slot < this.rightBeltSlot.size() + 111) this.rightBeltSlot.set(slot - 111, itemStack);
-                else if (slot >= 112 && slot < this.potionBeltSlot.size() + 112) this.potionBeltSlot.set(slot - 112, itemStack);
+                // else if (slot >= 112 && slot < this.potionBeltSlot.size() + 112) this.potionBeltSlot.set(slot - 112, itemStack);
             }
         }
     }
@@ -108,7 +108,8 @@ public abstract class PlayerInventoryMixin implements Inventory {
 
     @Inject(method = "isEmpty", at = @At("HEAD"), cancellable = true)
         public void isEmptyMixin(CallbackInfoReturnable<Boolean> info) {
-        if (!this.leftBeltSlot.isEmpty() || !this.rightBeltSlot.isEmpty() || !this.potionBeltSlot.isEmpty()) {
+        // if (!this.leftBeltSlot.isEmpty() || !this.rightBeltSlot.isEmpty() || !this.potionBeltSlot.isEmpty()) {
+        if (!this.leftBeltSlot.isEmpty() || !this.rightBeltSlot.isEmpty()) {
             info.setReturnValue(false);
         }
     }

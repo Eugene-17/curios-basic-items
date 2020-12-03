@@ -50,7 +50,9 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
             @Override
             public boolean canInsert(ItemStack stack) {
                 if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof ToolItem 
+                    if (stack.getItem() instanceof PotionItem
+                    || stack.getItem().isFood()
+                    || stack.getItem() instanceof ToolItem 
                     || stack.getItem() instanceof RangedWeaponItem
                     || stack.getItem() instanceof FishingRodItem 
                     || stack.getItem() instanceof OnAStickItem
@@ -87,7 +89,9 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
             @Override
             public boolean canInsert(ItemStack stack) {
                 if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof ToolItem 
+                    if (stack.getItem() instanceof PotionItem
+                    || stack.getItem().isFood()
+                    || stack.getItem() instanceof ToolItem 
                     || stack.getItem() instanceof RangedWeaponItem
                     || stack.getItem() instanceof FishingRodItem 
                     || stack.getItem() instanceof OnAStickItem
@@ -115,41 +119,41 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
             }
         };
         
-        Slot potionBeltSlot = new Slot(inventory, 43, 77, 8) {
-            @Override
-            public int getMaxItemCount() {
-                return 64;
-            }
+        // Slot potionBeltSlot = new Slot(inventory, 43, 77, 8) {
+        //     @Override
+        //     public int getMaxItemCount() {
+        //         return 64;
+        //     }
  
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof PotionItem
-                    || stack.getItem().isFood()
-                    ) return true;
-                    else return false;
-                }
-                else return false;
-            }
+        //     @Override
+        //     public boolean canInsert(ItemStack stack) {
+        //         if(BeltLeather.isWearingBelt(owner)){
+        //             if (stack.getItem() instanceof PotionItem
+        //             || stack.getItem().isFood()
+        //             ) return true;
+        //             else return false;
+        //         }
+        //         else return false;
+        //     }
 
-            @Override
-            public boolean canTakeItems(PlayerEntity playerEntity) {
-                ItemStack itemStack = this.getStack();
-                return !itemStack.isEmpty() && !playerEntity.isCreative() && EnchantmentHelper.hasBindingCurse(itemStack)
-                        ? false
-                        : super.canTakeItems(playerEntity);
-            }
+        //     @Override
+        //     public boolean canTakeItems(PlayerEntity playerEntity) {
+        //         ItemStack itemStack = this.getStack();
+        //         return !itemStack.isEmpty() && !playerEntity.isCreative() && EnchantmentHelper.hasBindingCurse(itemStack)
+        //                 ? false
+        //                 : super.canTakeItems(playerEntity);
+        //     }
 
-            @Override
-            public boolean doDrawHoveringEffect() {
-                if(BeltLeather.isWearingBelt(owner)) return true;
-                else return false;
-            }
-        };
+        //     @Override
+        //     public boolean doDrawHoveringEffect() {
+        //         if(BeltLeather.isWearingBelt(owner)) return true;
+        //         else return false;
+        //     }
+        // };
 
         this.addSlot(leftBeltSlot);
         this.addSlot(rightBeltSlot);
-        this.addSlot(potionBeltSlot);
+        // this.addSlot(potionBeltSlot);
 
     }
 }

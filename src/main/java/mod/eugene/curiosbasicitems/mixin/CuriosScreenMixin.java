@@ -28,7 +28,7 @@ import top.theillusivec4.curios.common.inventory.screen.CuriosScreenHandler;
 public abstract class CuriosScreenMixin extends HandledScreen<CuriosScreenHandler> implements RecipeBookProvider {
     private static final Identifier EMPTY_SLOT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_slot.png");
     private static final Identifier EMPTY_LEFT_BELT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_left_belt_slot.png");
-    private static final Identifier EMPTY_RIGHT_BELT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_right_belt_slot.png");
+    // private static final Identifier EMPTY_RIGHT_BELT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_right_belt_slot.png");
     private static final Identifier EMPTY_POTION_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_potion_belt_slot.png");
     @Shadow
     private final RecipeBookWidget recipeBook = new RecipeBookWidget();
@@ -60,7 +60,7 @@ public abstract class CuriosScreenMixin extends HandledScreen<CuriosScreenHandle
                     
                     ItemStack leftBeltSlotStack = this.playerInventory.getStack(41);
                     ItemStack rightBeltSlotStack = this.playerInventory.getStack(42);
-                    ItemStack potionBeltSlotStack = this.playerInventory.getStack(43);
+                    // ItemStack potionBeltSlotStack = this.playerInventory.getStack(43);
 
                     if (leftBeltSlotStack.isEmpty()) {
                         this.client.getTextureManager().bindTexture(EMPTY_LEFT_BELT_TEXTURE);
@@ -71,20 +71,20 @@ public abstract class CuriosScreenMixin extends HandledScreen<CuriosScreenHandle
                     }
 
                     if (rightBeltSlotStack.isEmpty()) {
-                        this.client.getTextureManager().bindTexture(EMPTY_RIGHT_BELT_TEXTURE);
+                        this.client.getTextureManager().bindTexture(EMPTY_POTION_TEXTURE);
                         DrawableHelper.drawTexture(matrices, scaledWidth / 2 - 12, scaledHeight / 2 - 58, 0.0F, 0.0F, 18, 18, 18, 18);
                     } else {
                         this.client.getTextureManager().bindTexture(EMPTY_SLOT_TEXTURE);
                         DrawableHelper.drawTexture(matrices, scaledWidth / 2 - 12, scaledHeight / 2 - 58, 0.0F, 0.0F, 18, 18, 18, 18);
                     }
 
-                    if (potionBeltSlotStack.isEmpty()) {
-                        this.client.getTextureManager().bindTexture(EMPTY_POTION_TEXTURE);
-                        DrawableHelper.drawTexture(matrices, scaledWidth / 2 - 12, scaledHeight / 2 - 76, 0.0F, 0.0F, 18, 18, 18, 18);
-                    } else {
-                        this.client.getTextureManager().bindTexture(EMPTY_SLOT_TEXTURE);
-                        DrawableHelper.drawTexture(matrices, scaledWidth / 2 - 12, scaledHeight / 2 - 76, 0.0F, 0.0F, 18, 18, 18, 18);
-                    }
+                    // if (potionBeltSlotStack.isEmpty()) {
+                    //     this.client.getTextureManager().bindTexture(EMPTY_POTION_TEXTURE);
+                    //     DrawableHelper.drawTexture(matrices, scaledWidth / 2 - 12, scaledHeight / 2 - 76, 0.0F, 0.0F, 18, 18, 18, 18);
+                    // } else {
+                    //     this.client.getTextureManager().bindTexture(EMPTY_SLOT_TEXTURE);
+                    //     DrawableHelper.drawTexture(matrices, scaledWidth / 2 - 12, scaledHeight / 2 - 76, 0.0F, 0.0F, 18, 18, 18, 18);
+                    // }
 
         });
     }

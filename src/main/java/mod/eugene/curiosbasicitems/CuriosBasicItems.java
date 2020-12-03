@@ -49,8 +49,8 @@ public class CuriosBasicItems implements ModInitializer {
         Registry.register(Registry.SOUND_EVENT, PACK_UP_ITEM, PACK_UP_ITEM_EVENT);
         Registry.register(Registry.SOUND_EVENT, SHEATH_SWORD, SHEATH_SWORD_EVENT);  
 
-        NetworkPackets.switchPacketInit();
-        NetworkPackets.eatPacketinit();
+        NetworkPackets.usePacketInit();
+        // NetworkPackets.eatPacketinit();
         _AmuletRegister.register();
         _BeltRegister.register();
         _CloakRegister.register();
