@@ -44,7 +44,7 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
         Slot leftBeltSlot = new Slot(inventory, 41, 77, 44) {
             @Override
             public int getMaxItemCount() {
-                return 1;
+                return 64;
             }
 
             @Override
@@ -71,7 +71,7 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
         Slot rightBeltSlot = new Slot(inventory, 42, 77, 26) {
             @Override
             public int getMaxItemCount() {
-                return 1;
+                return 64;
             }
 
             @Override

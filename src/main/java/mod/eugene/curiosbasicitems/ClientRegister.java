@@ -46,6 +46,7 @@ public class ClientRegister implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        
         useBackItemSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_OPEN_DESC, GLFW.GLFW_KEY_V, CONFIG_CATEGORY));
         useLeftBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_LBELT_DESC, GLFW.GLFW_KEY_Z, CONFIG_CATEGORY));
         useRightBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_RBELT_DESC, GLFW.GLFW_KEY_X, CONFIG_CATEGORY));
@@ -53,40 +54,30 @@ public class ClientRegister implements ClientModInitializer {
         // eatPotionBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_EATBELT_DESC, GLFW.GLFW_KEY_E, CONFIG_CATEGORY));
 
         ClientTickEvents.END_CLIENT_TICK.register((minecraftClient -> {
-            if(leftBeltDelayCountdown > 0) leftBeltDelayCountdown -= 1;
+            if(leftBeltDelayCountdown > 0) leftBeltDelayCountdown -=1;
+            if(rightBeltDelayCountdown > 0) rightBeltDelayCountdown -=1;
             ClientPlayerEntity clientPlayerEntity = minecraftClient.player;
             if (clientPlayerEntity != null){
                 if (useBackItemSlot.wasPressed()) {
                     ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.USE_BACK_ITEM, new PacketByteBuf(Unpooled.buffer()));
                 }
+                
+                if (useLeftBeltSlot.wasPressed()) sendPacket(41, NetworkPackets.SWITCH_BELT_ITEM);
 
-                Item leftBeltItem = clientPlayerEntity.inventory.getStack(41).getItem();
-                Item rightBeltItem = clientPlayerEntity.inventory.getStack(42).getItem();
+                //Potion slot
+                //Press
+                if(useRightBeltSlot.wasPressed() && BeltLeather.allowInstantEat(clientPlayerEntity)) sendPacket(42, NetworkPackets.INSTANT_EAT_PACKET);
 
-                if (useLeftBeltSlot.isPressed()){
-                    if((leftBeltItem.isFood() || leftBeltItem instanceof PotionItem) && !BeltLeather.allowInstantEat(clientPlayerEntity)) {
-                        if(!useRightBeltSlot.isPressed() ){
-                            if (leftBeltDelayCountdown == 0) sendUseItemPacket(1041);
-                            minecraftClient.options.keyUse.setPressed(true);
-                            leftBeltDelayCountdown = 4;
-                        } else if (leftBeltDelayCountdown == 3){
-                            minecraftClient.options.keyUse.setPressed(false);
-                            sendUseItemPacket(1041);
-                        }
-                    } else sendUseItemPacket(41);
-                }
-
-                if (useRightBeltSlot.isPressed()){
-                    if((rightBeltItem.isFood() || rightBeltItem instanceof PotionItem) && !BeltLeather.allowInstantEat(clientPlayerEntity)) {
-                        if(!useLeftBeltSlot.isPressed()){
-                            if (rightBeltDelayCountdown == 0) sendUseItemPacket(1042);
-                            minecraftClient.options.keyUse.setPressed(true);
-                            rightBeltDelayCountdown = 4;
-                        } else if (rightBeltDelayCountdown == 3){
-                            minecraftClient.options.keyUse.setPressed(false);
-                            sendUseItemPacket(1042);
-                        }
-                    } else sendUseItemPacket(42);
+                //Hold
+                if (useRightBeltSlot.isPressed() && !BeltLeather.allowInstantEat(clientPlayerEntity)) {
+                    if (rightBeltDelayCountdown == 0) sendPacket(42, NetworkPackets.FORCE_SWITCH_BELT_ITEM);
+                    minecraftClient.options.keyUse.setPressed(true);
+                    rightBeltDelayCountdown = 4;
+                } 
+                
+                if (rightBeltDelayCountdown == 1){
+                    minecraftClient.options.keyUse.setPressed(false);
+                    sendPacket(42, NetworkPackets.FORCE_SWITCH_BELT_ITEM);
                 }
             }
         }));
@@ -103,10 +94,10 @@ public class ClientRegister implements ClientModInitializer {
         ModelRegister.register();
     }
 
-    public static void sendUseItemPacket(int slot) {
+    public static void sendPacket(int slot, Identifier type) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
         buf.writeInt(slot);
-        CustomPayloadC2SPacket packet = new CustomPayloadC2SPacket(NetworkPackets.USE_BELT_ITEM, buf);
+        CustomPayloadC2SPacket packet = new CustomPayloadC2SPacket(type, buf);
         MinecraftClient.getInstance().getNetworkHandler().sendPacket(packet);
     }
 }

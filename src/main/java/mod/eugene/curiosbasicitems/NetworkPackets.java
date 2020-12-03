@@ -6,61 +6,64 @@ import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public class NetworkPackets {
-    public static final Identifier USE_BACK_ITEM = new Identifier(CuriosBasicItems.MODID, "USE_BACK_ITEM");
-    public static final Identifier USE_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "switch_item");
+    public static final Identifier USE_BACK_ITEM = new Identifier(CuriosBasicItems.MODID, "use_back_item");
+    public static final Identifier FORCE_SWITCH_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "force_switch_belt_item");
+    public static final Identifier SWITCH_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "switch_belt_item");
+    public static final Identifier INSTANT_EAT_PACKET = new Identifier(CuriosBasicItems.MODID, "instant_eat_belt_item");
     public static final Identifier VISIBILITY_UPDATE_PACKET = new Identifier(CuriosBasicItems.MODID, "visibility_update");
 
-    public static void useBeltItemPacketInit() {
-        ServerSidePacketRegistry.INSTANCE.register(USE_BELT_ITEM, (context, buffer) -> {
+    public static void instantEatPacketInit(){
+        ServerSidePacketRegistry.INSTANCE.register(INSTANT_EAT_PACKET, (context, buffer) -> {
             PlayerEntity player = context.getPlayer();
             int slot = buffer.readInt();
-            boolean force = false;
-            if (slot > 1000){
-                slot -=1000;
-                force = true;
+            ItemStack slotStack = (ItemStack) player.inventory.getStack(slot);
+            if (BeltLeather.allowInstantEat(player)){
+                if(!slotStack.isEmpty()){
+                    if (player.canConsume(slotStack.getItem().getFoodComponent().isAlwaysEdible())) {
+                        player.eatFood(player.getEntityWorld(), slotStack);
+                        return;
+                    }
+                }
             }
+        });
+    }
+
+    public static void switchBeltItemPacketInit() {
+        ServerSidePacketRegistry.INSTANCE.register(SWITCH_BELT_ITEM, (context, buffer) -> {
+            PlayerEntity player = context.getPlayer();
+            int slot = buffer.readInt();
             int selectedSlot = player.inventory.selectedSlot;
-            ItemStack selectedStack = (ItemStack) player.inventory.getStack(selectedSlot);
+            ItemStack targetStack = (ItemStack) player.inventory.getStack(selectedSlot);
             ItemStack slotStack = (ItemStack) player.inventory.getStack(slot);
             if(BeltLeather.isWearingBelt(player)){
-                if(force){
-                    player.inventory.setStack(slot, selectedStack);
+                if (BeltLeather.allowItem(targetStack.getItem()) || targetStack.isEmpty()) {
+                    player.inventory.setStack(slot, targetStack);
                     player.inventory.setStack(selectedSlot, slotStack);
                     player.inventory.markDirty();
-                } else if (BeltLeather.allowInstantEat(player)){
-                    if(!slotStack.isEmpty()){
-                        if (player.canConsume(slotStack.getItem().getFoodComponent().isAlwaysEdible())) {
-                            player.eatFood(player.getEntityWorld(), slotStack);
-                            return;
-                        }
-                    }
-                } else if (BeltLeather.allowItem(selectedStack.getItem())) {
-                    player.inventory.setStack(slot, selectedStack);
-                    player.inventory.setStack(selectedSlot, slotStack);
-                    player.inventory.markDirty();
-                    if (selectedStack.isEmpty() && !slotStack.isEmpty()) {
-                        if (slotStack.getItem() instanceof SwordItem) {
-                            player.world.playSound(null, player.getBlockPos(), CuriosBasicItems.SHEATH_SWORD_EVENT,
-                                SoundCategory.PLAYERS, 1.0F, 1.0F);
-                        } else {
-                            player.world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
-                                SoundCategory.PLAYERS, 1.0F, 1.0F);
-                        }
-                        } else if (selectedStack.getItem() instanceof SwordItem) {
-                            player.world.playSound(null, player.getBlockPos(), CuriosBasicItems.PACK_UP_ITEM_EVENT, SoundCategory.PLAYERS,
-                            1.0F, 1.0F);
-                        } else if (!selectedStack.isEmpty()) {
-                            player.world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
-                            SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    }   
+                    player.world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
                 }
+            }
+        });
+    }
+
+    public static void forceSwitchBeltItemPacketInit() {
+        ServerSidePacketRegistry.INSTANCE.register(FORCE_SWITCH_BELT_ITEM, (context, buffer) -> {
+            PlayerEntity player = context.getPlayer();
+            int slot = buffer.readInt();
+            int selectedSlot = player.inventory.selectedSlot;
+            ItemStack targetStack = (ItemStack) player.inventory.getStack(selectedSlot);
+            ItemStack slotStack = (ItemStack) player.inventory.getStack(slot);
+            if(BeltLeather.isWearingBelt(player)){
+                player.inventory.setStack(slot, targetStack);
+                player.inventory.setStack(selectedSlot, slotStack);
+                player.inventory.markDirty();
+                player.world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
             }
         });
     }
