@@ -28,7 +28,6 @@ import top.theillusivec4.curios.api.CuriosApi;
 public abstract class InventoryScreenMixin extends AbstractInventoryScreen<PlayerScreenHandler> implements RecipeBookProvider {
     private static final Identifier EMPTY_SLOT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_slot.png");
     private static final Identifier EMPTY_LEFT_BELT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_left_belt_slot.png");
-    private static final Identifier EMPTY_RIGHT_BELT_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_right_belt_slot.png");
     private static final Identifier EMPTY_POTION_TEXTURE = new Identifier(CuriosBasicItems.MODID, "textures/item/empty_potion_belt_slot.png");
     @Shadow
     private final RecipeBookWidget recipeBook = new RecipeBookWidget();
@@ -49,8 +48,8 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
                     if (this.recipeBook.isOpen()) {
                         scaledWidth = scaledWidth + 154;
                     }
-                    ItemStack leftBeltSlotStack = this.playerInventory.getStack(41);
-                    ItemStack rightBeltSlotStack = this.playerInventory.getStack(42);
+                    ItemStack leftBeltSlotStack = this.playerInventory.getStack(CuriosBasicItems.LEFT_BELT_SLOT);
+                    ItemStack rightBeltSlotStack = this.playerInventory.getStack(CuriosBasicItems.RIGHT_BELT_SLOT);
                     // ItemStack potionBeltSlotStack = this.playerInventory.getStack(43);
 
                     if (leftBeltSlotStack.isEmpty()) {

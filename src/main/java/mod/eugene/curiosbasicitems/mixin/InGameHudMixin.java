@@ -8,6 +8,9 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import mod.eugene.curiosbasicitems.CuriosBasicItems;
+
 import org.spongepowered.asm.mixin.injection.At;
 
 import net.fabricmc.api.EnvType;
@@ -43,8 +46,8 @@ public abstract class InGameHudMixin extends DrawableHelper {
     public void renderHotbarMixin(float f, MatrixStack matrixStack, CallbackInfo info) {
         PlayerEntity playerEntity = this.getCameraPlayer();
         if (playerEntity != null) {
-            ItemStack leftBeltStack = playerEntity.inventory.getStack(41);
-            ItemStack rightBeltStack = playerEntity.inventory.getStack(42);
+            ItemStack leftBeltStack = playerEntity.inventory.getStack(CuriosBasicItems.LEFT_BELT_SLOT);
+            ItemStack rightBeltStack = playerEntity.inventory.getStack(CuriosBasicItems.RIGHT_BELT_SLOT);
             // ItemStack potionBeltStack = playerEntity.inventory.getStack(43);
     
             RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);

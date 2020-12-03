@@ -32,6 +32,9 @@ public class CuriosBasicItems implements ModInitializer {
     public static SoundEvent PACK_UP_ITEM_EVENT = new SoundEvent(PACK_UP_ITEM);
     public static final Identifier SHEATH_SWORD = new Identifier(MODID, "sheath_sword");
     public static SoundEvent SHEATH_SWORD_EVENT = new SoundEvent(SHEATH_SWORD);
+
+    public static int LEFT_BELT_SLOT = 41;
+    public static int RIGHT_BELT_SLOT = 42;
 	
 	@Override
 	public void onInitialize() {
@@ -49,10 +52,7 @@ public class CuriosBasicItems implements ModInitializer {
         Registry.register(Registry.SOUND_EVENT, PACK_UP_ITEM, PACK_UP_ITEM_EVENT);
         Registry.register(Registry.SOUND_EVENT, SHEATH_SWORD, SHEATH_SWORD_EVENT);  
 
-        NetworkPackets.switchBeltItemPacketInit();
-        NetworkPackets.useBackItemPacketInit();
-        NetworkPackets.instantEatPacketInit();
-        NetworkPackets.forceSwitchBeltItemPacketInit();
+        NetworkPackets.serverRegister();
         _AmuletRegister.register();
         _BeltRegister.register();
         _CloakRegister.register();

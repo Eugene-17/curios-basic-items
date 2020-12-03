@@ -5,9 +5,6 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.client.options.KeyBinding;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.PotionItem;
 
 import org.lwjgl.glfw.GLFW;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -42,6 +39,8 @@ public class ClientRegister implements ClientModInitializer {
 
     public static int leftBeltDelayCountdown = 0;
     public static int rightBeltDelayCountdown = 0;
+
+    private static int targetSlot = CuriosBasicItems.RIGHT_BELT_SLOT;
     
 
     @Override
@@ -62,22 +61,29 @@ public class ClientRegister implements ClientModInitializer {
                     ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.USE_BACK_ITEM, new PacketByteBuf(Unpooled.buffer()));
                 }
                 
-                if (useLeftBeltSlot.wasPressed()) sendPacket(41, NetworkPackets.SWITCH_BELT_ITEM);
-
+                if (useLeftBeltSlot.isPressed()){
+                    if(leftBeltDelayCountdown == 0) sendPacket(CuriosBasicItems.LEFT_BELT_SLOT, NetworkPackets.SWITCH_LEFT_BELT_ITEM);
+                    leftBeltDelayCountdown = 2;
+                }
                 //Potion slot
                 //Press
-                if(useRightBeltSlot.wasPressed() && BeltLeather.allowInstantEat(clientPlayerEntity)) sendPacket(42, NetworkPackets.INSTANT_EAT_PACKET);
+                if(useRightBeltSlot.wasPressed() && BeltLeather.allowInstantEat(clientPlayerEntity)) sendPacket(CuriosBasicItems.RIGHT_BELT_SLOT, NetworkPackets.INSTANT_EAT_PACKET);
 
                 //Hold
                 if (useRightBeltSlot.isPressed() && !BeltLeather.allowInstantEat(clientPlayerEntity)) {
-                    if (rightBeltDelayCountdown == 0) sendPacket(42, NetworkPackets.FORCE_SWITCH_BELT_ITEM);
+                    if (rightBeltDelayCountdown == 0){
+                        targetSlot = clientPlayerEntity.inventory.selectedSlot;
+                        sendPacket(targetSlot, NetworkPackets.SWITCH_RIGHT_BELT_ITEM);
+                    }
                     minecraftClient.options.keyUse.setPressed(true);
                     rightBeltDelayCountdown = 4;
                 } 
                 
-                if (rightBeltDelayCountdown == 1){
+                if (rightBeltDelayCountdown == 1 || 
+                (targetSlot != clientPlayerEntity.inventory.selectedSlot && rightBeltDelayCountdown >0)){
                     minecraftClient.options.keyUse.setPressed(false);
-                    sendPacket(42, NetworkPackets.FORCE_SWITCH_BELT_ITEM);
+                    sendPacket(targetSlot, NetworkPackets.SWITCH_RIGHT_BELT_ITEM);
+                    rightBeltDelayCountdown = 0;
                 }
             }
         }));
@@ -90,7 +96,7 @@ public class ClientRegister implements ClientModInitializer {
         }));
 
 
-        NetworkPackets.visibilityUpdatePacketinit();
+        NetworkPackets.clientRegister();
         ModelRegister.register();
     }
 

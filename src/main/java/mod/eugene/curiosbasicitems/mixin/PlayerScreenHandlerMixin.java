@@ -4,6 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import mod.eugene.curiosbasicitems.items.belt.BeltLeather;
 
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,7 +28,7 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
 
     @Inject(method = "<init>*", at = @At("RETURN"))
     private void onConstructed(PlayerInventory inventory, boolean onServer, PlayerEntity owner, CallbackInfo info) {
-        Slot leftBeltSlot = new Slot(inventory, 41, 77, 44) {
+        Slot leftBeltSlot = new Slot(inventory, CuriosBasicItems.LEFT_BELT_SLOT, 77, 44) {
             @Override
             public int getMaxItemCount() {
                 return 64;
@@ -54,7 +55,7 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
             }
         };
 
-        Slot rightBeltSlot = new Slot(inventory, 42, 77, 26) {
+        Slot rightBeltSlot = new Slot(inventory, CuriosBasicItems.RIGHT_BELT_SLOT, 77, 26) {
             @Override
             public int getMaxItemCount() {
                 return 64;

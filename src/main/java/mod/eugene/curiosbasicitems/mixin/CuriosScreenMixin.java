@@ -58,8 +58,8 @@ public abstract class CuriosScreenMixin extends HandledScreen<CuriosScreenHandle
                         }
                     }
                     
-                    ItemStack leftBeltSlotStack = this.playerInventory.getStack(41);
-                    ItemStack rightBeltSlotStack = this.playerInventory.getStack(42);
+                    ItemStack leftBeltSlotStack = this.playerInventory.getStack(CuriosBasicItems.LEFT_BELT_SLOT);
+                    ItemStack rightBeltSlotStack = this.playerInventory.getStack(CuriosBasicItems.RIGHT_BELT_SLOT);
                     // ItemStack potionBeltSlotStack = this.playerInventory.getStack(43);
 
                     if (leftBeltSlotStack.isEmpty()) {

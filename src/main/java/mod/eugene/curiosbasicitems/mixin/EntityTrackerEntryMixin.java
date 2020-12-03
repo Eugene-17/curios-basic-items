@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import io.netty.buffer.Unpooled;
+import mod.eugene.curiosbasicitems.CuriosBasicItems;
 import mod.eugene.curiosbasicitems.NetworkPackets;
 
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,7 +31,7 @@ public class EntityTrackerEntryMixin {
   public void startTrackingMixin(ServerPlayerEntity serverPlayer, CallbackInfo info) {
     if (entity instanceof PlayerEntity) {
         PlayerEntity player = (PlayerEntity) entity;
-        for (int i = 41; i < 43; i++) {
+        for (int i = CuriosBasicItems.LEFT_BELT_SLOT; i < CuriosBasicItems.RIGHT_BELT_SLOT; i++) {
             if (!serverPlayer.inventory.getStack(i).isEmpty()) {
                 PacketByteBuf data = new PacketByteBuf(Unpooled.buffer());
                 data.writeIntArray(new int[] { serverPlayer.getEntityId(), i });

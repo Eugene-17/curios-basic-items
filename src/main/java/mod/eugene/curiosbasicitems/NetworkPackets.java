@@ -13,12 +13,12 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class NetworkPackets {
     public static final Identifier USE_BACK_ITEM = new Identifier(CuriosBasicItems.MODID, "use_back_item");
-    public static final Identifier FORCE_SWITCH_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "force_switch_belt_item");
-    public static final Identifier SWITCH_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "switch_belt_item");
+    public static final Identifier SWITCH_LEFT_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "switch_left_belt_item");
+    public static final Identifier SWITCH_RIGHT_BELT_ITEM = new Identifier(CuriosBasicItems.MODID, "force_switch_right_belt_item");
     public static final Identifier INSTANT_EAT_PACKET = new Identifier(CuriosBasicItems.MODID, "instant_eat_belt_item");
     public static final Identifier VISIBILITY_UPDATE_PACKET = new Identifier(CuriosBasicItems.MODID, "visibility_update");
 
-    public static void instantEatPacketInit(){
+    public static void serverRegister(){
         ServerSidePacketRegistry.INSTANCE.register(INSTANT_EAT_PACKET, (context, buffer) -> {
             PlayerEntity player = context.getPlayer();
             int slot = buffer.readInt();
@@ -32,12 +32,10 @@ public class NetworkPackets {
                 }
             }
         });
-    }
 
-    public static void switchBeltItemPacketInit() {
-        ServerSidePacketRegistry.INSTANCE.register(SWITCH_BELT_ITEM, (context, buffer) -> {
+        ServerSidePacketRegistry.INSTANCE.register(SWITCH_LEFT_BELT_ITEM, (context, buffer) -> {
             PlayerEntity player = context.getPlayer();
-            int slot = buffer.readInt();
+            int slot = CuriosBasicItems.LEFT_BELT_SLOT;
             int selectedSlot = player.inventory.selectedSlot;
             ItemStack targetStack = (ItemStack) player.inventory.getStack(selectedSlot);
             ItemStack slotStack = (ItemStack) player.inventory.getStack(slot);
@@ -50,25 +48,34 @@ public class NetworkPackets {
                 }
             }
         });
-    }
 
-    public static void forceSwitchBeltItemPacketInit() {
-        ServerSidePacketRegistry.INSTANCE.register(FORCE_SWITCH_BELT_ITEM, (context, buffer) -> {
+        ServerSidePacketRegistry.INSTANCE.register(SWITCH_RIGHT_BELT_ITEM, (context, buffer) -> {
             PlayerEntity player = context.getPlayer();
             int slot = buffer.readInt();
-            int selectedSlot = player.inventory.selectedSlot;
-            ItemStack targetStack = (ItemStack) player.inventory.getStack(selectedSlot);
-            ItemStack slotStack = (ItemStack) player.inventory.getStack(slot);
+            ItemStack targetStack = (ItemStack) player.inventory.getStack(slot);
+            ItemStack slotStack = (ItemStack) player.inventory.getStack(CuriosBasicItems.RIGHT_BELT_SLOT);
             if(BeltLeather.isWearingBelt(player)){
-                player.inventory.setStack(slot, targetStack);
-                player.inventory.setStack(selectedSlot, slotStack);
+                player.inventory.setStack(CuriosBasicItems.RIGHT_BELT_SLOT, targetStack);
+                player.inventory.setStack(slot, slotStack);
                 player.inventory.markDirty();
                 player.world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
             }
         });
+
+        ServerSidePacketRegistry.INSTANCE.register(NetworkPackets.USE_BACK_ITEM,
+        (((packetContext, packetByteBuf) -> packetContext.getTaskQueue().execute(() -> {
+			PlayerEntity playerEntity = packetContext.getPlayer();
+			if (playerEntity != null) {
+			  	CuriosApi.getCuriosHelper().findEquippedCurio((itemStack) -> itemStack
+					.getItem() instanceof BackItem, playerEntity)
+					.ifPresent(found -> {
+						((BackItem) found.right.getItem()).useBackItem(playerEntity.getEntityWorld(), playerEntity);
+					});
+			}
+        }))));
     }
 
-    public static void visibilityUpdatePacketinit() {
+    public static void clientRegister(){
         ClientSidePacketRegistry.INSTANCE.register(VISIBILITY_UPDATE_PACKET, (context, buffer) -> {
             int[] bufferArray = buffer.readIntArray();
             int entityId = bufferArray[0];
@@ -83,18 +90,4 @@ public class NetworkPackets {
             });
         });
     }
-    public static void useBackItemPacketInit(){
-        //Curios crafting table event
-        ServerSidePacketRegistry.INSTANCE.register(NetworkPackets.USE_BACK_ITEM,
-        (((packetContext, packetByteBuf) -> packetContext.getTaskQueue().execute(() -> {
-			PlayerEntity playerEntity = packetContext.getPlayer();
-			if (playerEntity != null) {
-			  	CuriosApi.getCuriosHelper().findEquippedCurio((itemStack) -> itemStack
-					.getItem() instanceof BackItem, playerEntity)
-					.ifPresent(found -> {
-						((BackItem) found.right.getItem()).useBackItem(playerEntity.getEntityWorld(), playerEntity);
-					});
-			}
-        }))));
-    } 	
 }

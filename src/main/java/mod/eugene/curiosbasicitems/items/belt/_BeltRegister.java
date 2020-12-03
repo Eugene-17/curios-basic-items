@@ -33,8 +33,8 @@ public class _BeltRegister {
     public static final BeltChampion CHAMPION_BELT = new BeltChampion();
 
     private static final void dropAllBeltItem(PlayerInventory playerInventory, World playerWorld){
-        playerInventory.offerOrDrop(playerWorld, playerInventory.getStack(41));
-        playerInventory.offerOrDrop(playerWorld, playerInventory.getStack(42));
+        playerInventory.offerOrDrop(playerWorld, playerInventory.getStack(CuriosBasicItems.LEFT_BELT_SLOT));
+        playerInventory.offerOrDrop(playerWorld, playerInventory.getStack(CuriosBasicItems.RIGHT_BELT_SLOT));
         playerInventory.offerOrDrop(playerWorld, playerInventory.getStack(43));
     }
 
