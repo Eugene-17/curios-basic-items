@@ -30,7 +30,7 @@ public class ClientRegister implements ClientModInitializer {
     public static final String CONFIG_EATBELT_DESC = "key.curiosbasicitems.eat_belt.desc";
     public static final String CONFIG_CATEGORY = "key.curiosbasicitems.category";
 
-    public static KeyBinding openCuriosCraftingTable;
+    public static KeyBinding useBackItemSlot;
     public static KeyBinding useLeftBeltSlot;
     public static KeyBinding useRightBeltSlot;
     public static KeyBinding switchPotionBeltSlot;
@@ -46,7 +46,7 @@ public class ClientRegister implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        openCuriosCraftingTable = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_OPEN_DESC, GLFW.GLFW_KEY_V, CONFIG_CATEGORY));
+        useBackItemSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_OPEN_DESC, GLFW.GLFW_KEY_V, CONFIG_CATEGORY));
         useLeftBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_LBELT_DESC, GLFW.GLFW_KEY_Z, CONFIG_CATEGORY));
         useRightBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_RBELT_DESC, GLFW.GLFW_KEY_X, CONFIG_CATEGORY));
         // switchPotionBeltSlot = KeyBindingHelper.registerKeyBinding(new KeyBinding(CONFIG_PBELT_DESC, GLFW.GLFW_KEY_C, CONFIG_CATEGORY));
@@ -56,8 +56,8 @@ public class ClientRegister implements ClientModInitializer {
             if(leftBeltDelayCountdown > 0) leftBeltDelayCountdown -= 1;
             ClientPlayerEntity clientPlayerEntity = minecraftClient.player;
             if (clientPlayerEntity != null){
-                if (openCuriosCraftingTable.wasPressed()) {
-                    ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.ACCESS_BACKSLOT, new PacketByteBuf(Unpooled.buffer()));
+                if (useBackItemSlot.wasPressed()) {
+                    ClientSidePacketRegistry.INSTANCE.sendToServer(NetworkPackets.USE_BACK_ITEM, new PacketByteBuf(Unpooled.buffer()));
                 }
 
                 Item leftBeltItem = clientPlayerEntity.inventory.getStack(41).getItem();
@@ -88,20 +88,6 @@ public class ClientRegister implements ClientModInitializer {
                         }
                     } else sendUseItemPacket(42);
                 }
-                // if (switchPotionBeltSlot.wasPressed()) sendUseItemPacket(43);
-
-                //Press
-                // if(eatPotionBeltSlot.wasPressed() && BeltLeather.allowInstantEat(clientPlayerEntity)) sendUseItemPacket(43);
-
-                //Hold
-                // if (eatPotionBeltSlot.isPressed() && !BeltLeather.allowInstantEat(clientPlayerEntity)) {
-                //     if (leftBeltDelayCountdown == 0) sendUseItemPacket(1043);
-                //     minecraftClient.options.keyUse.setPressed(true);
-                //     leftBeltDelayCountdown = 4;
-                // } else if (leftBeltDelayCountdown == 3){
-                //     minecraftClient.options.keyUse.setPressed(false);
-                //     sendUseItemPacket(1043);
-                // }
             }
         }));
 
@@ -120,14 +106,7 @@ public class ClientRegister implements ClientModInitializer {
     public static void sendUseItemPacket(int slot) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
         buf.writeInt(slot);
-        CustomPayloadC2SPacket packet = new CustomPayloadC2SPacket(NetworkPackets.USE_PACKET, buf);
+        CustomPayloadC2SPacket packet = new CustomPayloadC2SPacket(NetworkPackets.USE_BELT_ITEM, buf);
         MinecraftClient.getInstance().getNetworkHandler().sendPacket(packet);
     }
-
-    // public static void eatItem(int slot) {
-    //     PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-    //     buf.writeInt(slot);
-    //     CustomPayloadC2SPacket packet = new CustomPayloadC2SPacket(NetworkPackets.EAT_PACKET, buf);
-    //     MinecraftClient.getInstance().getNetworkHandler().sendPacket(packet);
-    // }
 }

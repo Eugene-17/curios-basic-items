@@ -11,19 +11,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.item.FishingRodItem;
-import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.OnAStickItem;
-import net.minecraft.item.RangedWeaponItem;
-import net.minecraft.item.ShearsItem;
-import net.minecraft.item.ToolItem;
-import net.minecraft.item.TridentItem;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.item.PotionItem;
 import net.minecraft.enchantment.EnchantmentHelper;
 
 @Mixin(PlayerScreenHandler.class)
@@ -38,24 +30,12 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
         Slot leftBeltSlot = new Slot(inventory, 41, 77, 44) {
             @Override
             public int getMaxItemCount() {
-                return 1;
+                return 64;
             }
 
             @Override
             public boolean canInsert(ItemStack stack) {
-                if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof PotionItem
-                    || stack.getItem().isFood()
-                    || stack.getItem() instanceof ToolItem 
-                    || stack.getItem() instanceof RangedWeaponItem
-                    || stack.getItem() instanceof FishingRodItem 
-                    || stack.getItem() instanceof OnAStickItem
-                    || stack.getItem() instanceof TridentItem 
-                    || stack.getItem() instanceof FlintAndSteelItem
-                    || stack.getItem() instanceof ShearsItem
-                    ) return true;
-                    else return false;
-                }
+                if(BeltLeather.isWearingBelt(owner)) return BeltLeather.allowItem(stack.getItem());
                 else return false;
             }
 
@@ -77,24 +57,12 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
         Slot rightBeltSlot = new Slot(inventory, 42, 77, 26) {
             @Override
             public int getMaxItemCount() {
-                return 1;
+                return 64;
             }
 
             @Override
             public boolean canInsert(ItemStack stack) {
-                if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof PotionItem
-                    || stack.getItem().isFood()
-                    || stack.getItem() instanceof ToolItem 
-                    || stack.getItem() instanceof RangedWeaponItem
-                    || stack.getItem() instanceof FishingRodItem 
-                    || stack.getItem() instanceof OnAStickItem
-                    || stack.getItem() instanceof TridentItem 
-                    || stack.getItem() instanceof FlintAndSteelItem
-                    || stack.getItem() instanceof ShearsItem
-                    ) return true;
-                    else return false;
-                }
+                if(BeltLeather.isWearingBelt(owner)) return BeltLeather.allowItem(stack.getItem());
                 else return false;
             }
 

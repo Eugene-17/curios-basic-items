@@ -49,19 +49,7 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
 
             @Override
             public boolean canInsert(ItemStack stack) {
-                if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof PotionItem
-                    || stack.getItem().isFood()
-                    || stack.getItem() instanceof ToolItem 
-                    || stack.getItem() instanceof RangedWeaponItem
-                    || stack.getItem() instanceof FishingRodItem 
-                    || stack.getItem() instanceof OnAStickItem
-                    || stack.getItem() instanceof TridentItem 
-                    || stack.getItem() instanceof FlintAndSteelItem
-                    || stack.getItem() instanceof ShearsItem
-                    ) return true;
-                    else return false;
-                }
+                if(BeltLeather.isWearingBelt(owner)) return BeltLeather.allowItem(stack.getItem());
                 else return false;
             }
 
@@ -88,19 +76,7 @@ public abstract class CuriosScreenHandlerMixin extends CraftingScreenHandler {
 
             @Override
             public boolean canInsert(ItemStack stack) {
-                if(BeltLeather.isWearingBelt(owner)){
-                    if (stack.getItem() instanceof PotionItem
-                    || stack.getItem().isFood()
-                    || stack.getItem() instanceof ToolItem 
-                    || stack.getItem() instanceof RangedWeaponItem
-                    || stack.getItem() instanceof FishingRodItem 
-                    || stack.getItem() instanceof OnAStickItem
-                    || stack.getItem() instanceof TridentItem 
-                    || stack.getItem() instanceof FlintAndSteelItem
-                    || stack.getItem() instanceof ShearsItem
-                    ) return true;
-                    else return false;
-                }
+                if(BeltLeather.isWearingBelt(owner)) return BeltLeather.allowItem(stack.getItem());
                 else return false;
             }
 

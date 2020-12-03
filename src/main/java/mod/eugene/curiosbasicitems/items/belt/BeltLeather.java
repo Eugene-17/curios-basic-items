@@ -2,8 +2,14 @@ package mod.eugene.curiosbasicitems.items.belt;
 
 import java.util.List;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.FishingRodItem;
+import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.OnAStickItem;
+import net.minecraft.item.PotionItem;
+import net.minecraft.item.ShearsItem;
+import net.minecraft.item.ToolItem;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -34,5 +40,17 @@ public class BeltLeather extends Item {
                 .getItem() instanceof BeltGluttony || itemStack
                 .getItem() instanceof BeltChampion, playerEntity)
                 .isPresent();
+    }
+
+    public static boolean allowItem(Item item){
+        if (item instanceof PotionItem
+        || item.isFood()
+        || item instanceof ToolItem 
+        || item instanceof FishingRodItem 
+        || item instanceof OnAStickItem
+        || item instanceof FlintAndSteelItem
+        || item instanceof ShearsItem
+        ) return true;
+        else return false;
     }
 }   
