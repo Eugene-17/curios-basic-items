@@ -1,0 +1,40 @@
+{
+	"result": {
+		"item": "curiosbasicitems:charm_hunger"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"BPM",
+        "CSO",
+        "AIH"
+	],
+	"key": {
+		"B": {
+			"item": "minecraft:cooked_beef"
+        },
+        "P": {
+			"item": "minecraft:cooked_porkchop"
+        },
+        "M": {
+			"item": "minecraft:cooked_mutton"
+        },
+        "C": {
+			"item": "minecraft:cooked_chicken"
+        },
+        "S": {
+			"item": "minecraft:cooked_salmon"
+        },
+        "O": {
+			"item": "minecraft:cooked_cod"
+        },
+        "A": {
+			"item": "minecraft:cake"
+        },
+        "I": {
+			"item": "minecraft:cookie"
+        },
+        "H": {
+			"item": "minecraft:honey_bottle"
+        }
+	}
+}

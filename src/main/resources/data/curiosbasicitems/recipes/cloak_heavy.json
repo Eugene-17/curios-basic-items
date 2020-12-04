@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:cloak_heavy"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"III",
+		"III",
+		"BBB"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"B": {
+			"item": "minecraft:iron_block"
+		}
+	}
+}

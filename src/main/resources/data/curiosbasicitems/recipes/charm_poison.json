@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:charm_poison"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		" F ",
+        "FWF",
+        " F "
+	],
+	"key": {
+		"F": {
+			"item": "minecraft:fermented_spider_eye"
+		},
+		"W": {
+			"item": "minecraft:cobweb"
+		}
+	}
+}

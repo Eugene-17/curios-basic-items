@@ -1,0 +1,24 @@
+{
+	"result": {
+		"item": "curiosbasicitems:cloak_king"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		" D ",
+		"CVB"
+	],
+	"key": {
+		"D": {
+			"item": "minecraft:dragon_head"
+		},
+		"C": {
+			"item": "curiosbasicitems:cloak_invisible"
+		},
+		"V": {
+			"item": "curiosbasicitems:cloak_fire"
+		},
+		"B": {
+			"item": "curiosbasicitems:cloak_heavy"
+		}
+	}
+}

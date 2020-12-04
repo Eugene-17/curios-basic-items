@@ -1,0 +1,25 @@
+{
+	"result": {
+		"item": "curiosbasicitems:hat_king"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+        "GGG",
+        " G ",
+		"CVB"
+	],
+	"key": {
+		"C": {
+			"item": "curiosbasicitems:charm_poison"
+		},
+		"V": {
+			"item": "curiosbasicitems:charm_hunger"
+		},
+		"B": {
+			"item": "curiosbasicitems:charm_wither"
+		},
+		"G": {
+			"item": "minecraft:gold_block"
+		}
+	}
+}

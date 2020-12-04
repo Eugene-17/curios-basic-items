@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "curiosbasicitems:charm_wither"
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		" W ",
+		"WSW",
+		" W "
+	],
+	"key": {
+		"S": {
+			"item": "minecraft:wither_skeleton_skull"
+        },
+        "W": {
+			"item": "minecraft:wither_rose"
+        }
+	}
+}
